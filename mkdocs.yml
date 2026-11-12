@@ -1,5 +1,5 @@
 site_name: 电磁场与电磁波从零到精通
-site_description: 面向电子信息类本科生的电磁场与电磁波讲义——从矢量分析到传输线与无线信道，配 manim 动画可视化与知识点归纳
+site_description: 电磁场与电磁波讲义——从矢量分析到传输线与无线信道，配 manim 动画可视化与知识点归纳
 site_author: light
 site_url: https://cockroach-f.github.io/em-fields-waves/
 repo_url: https://github.com/cockroach-f/em-fields-waves

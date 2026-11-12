@@ -196,7 +196,7 @@ class C5_Poynting(Scene):
         title = title_bar(r"坡印廷矢量 $\vv S=\vv E\times\vv H$：能量在导体\textbf{之间}的场中流动，导线只是“导轨”")
         fitw(title, 13.6)
         self.play(FadeIn(title))
-        x0, x1 = -5.6, 3.2
+        x0, x1 = -5.6, 1.4
         yc = -0.2
         ri, ro = 0.35, 1.9
         outerT = Rectangle(width=x1 - x0, height=0.22, stroke_width=0, fill_color=GREY_B, fill_opacity=1).move_to([(x0 + x1) / 2, yc + ro + 0.11, 0])
@@ -205,7 +205,7 @@ class C5_Poynting(Scene):
         src = VGroup(Circle(radius=0.35, color=WHITE).move_to([x0 - 0.6, yc, 0]), MT("U", 26).move_to([x0 - 0.6, yc, 0]))
         load = VGroup(Rectangle(width=0.35, height=1.2, color=WHITE).move_to([x1 + 0.6, yc, 0]), MT("R_L", 24).move_to([x1 + 1.15, yc, 0]))
         lab = CT(r"同轴线纵剖面：内导体（橙）电流 $I$ 向右，外导体（灰）电流向左", 22).next_to(outerT, UP, buff=0.1)
-        fitw(lab, 9)
+        fitw(lab, 7)
         self.play(FadeIn(outerT), FadeIn(outerB), FadeIn(inner), FadeIn(src), FadeIn(load), FadeIn(lab))
         Ea = VGroup()
         Hs = VGroup()
@@ -232,7 +232,7 @@ class C5_Poynting(Scene):
             MT(r"\vv S=\vv E\times\vv H=\az\frac{UI}{2\pi\rho^2\ln(b/a)}", 30, C_S),
             MT(r"P=\int_a^b S\,2\pi\rho\,\dd\rho=UI", 30, C_S),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15)
-        fitw(res1, 4.6).to_corner(DR, buff=0.3)
+        fitw(res1, 3.9).move_to(RIGHT * 4.95 + DOWN * 0.9)
         self.play(FadeOut(Hs), Ea.animate.set_opacity(0.35), LaggedStart(*[GrowArrow(a) for a in Ss], lag_ratio=0.02), run_time=2)
         self.play(FadeIn(res1))
         self.wait(2)
@@ -244,7 +244,7 @@ class C5_Poynting(Scene):
             tilt.add(small_arrow(np.array([xx, yc + ri + 0.55, 0]), np.array([0.35, -0.42, 0]), RED_B, sw=5, tip=0.3))
             tilt.add(small_arrow(np.array([xx, yc - ri - 0.55, 0]), np.array([0.35, 0.42, 0]), RED_B, sw=5, tip=0.3))
         res2 = MT(r"-\oint\vv S\cdot\dd\vv S=\frac{I^2}{2\pi^2a^3\sigma}\cdot2\pi a=I^2R_0", 28, RED_B)
-        fitw(res2, 4.6).next_to(res1, UP, buff=0.2).align_to(res1, LEFT)
+        fitw(res2, 3.9).next_to(res1, UP, buff=0.5).align_to(res1, LEFT)
         self.play(FadeOut(lab), FadeIn(cap2), Ss.animate.set_opacity(0.4), LaggedStart(*[GrowArrow(a) for a in tilt], lag_ratio=0.05), run_time=2)
         self.play(FadeIn(res2))
         self.wait(3)
@@ -276,7 +276,7 @@ class C5_Phasor(Scene):
         vecE = always_redraw(lambda: Arrow(O, tip(), buff=0, color=C_E, stroke_width=5))
         proj = always_redraw(lambda: DashedLine(tip(), [tip()[0], O[1], 0], color=C_E, stroke_width=2))
         pdot = always_redraw(lambda: Dot([tip()[0], O[1], 0], color=C_E, radius=0.07))
-        lE = MT(r"E_m\mathrm e^{\mathrm j(\omega t+\varphi)}", 26, C_E).move_to(O + UP * 2.45 + RIGHT * 0.2)
+        lE = MT(r"E_m\mathrm e^{\mathrm j(\omega t+\varphi)}", 26, C_E).move_to(O + UP * 2.2 + LEFT * 1.6)
         self.play(GrowArrow(vecE), FadeIn(lE))
         self.add(proj, pdot)
         # 右侧：瞬时值（时间轴向下画成波形）
