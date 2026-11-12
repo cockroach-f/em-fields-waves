@@ -310,6 +310,11 @@ $$E_1=E_0^i\left(\mathrm e^{-\je k_1z}+R\,\mathrm e^{\je k_1z}\right),\qquad|E_1
 
     $1\le S\le\infty$：$S=1$ 为行波（无反射），$S=\infty$ 为纯驻波（全反射）。$R>0$（$\eta_2>\eta_1$）时分界面处为电场波腹；$R<0$ 时为电场波节。
 
+<figure markdown>
+![介质分界面前的行驻波](assets/img/ref_ch6_standing_EH.png){ width="720" }
+<figcaption>图 6-A　两种介质分界面（$z=0$）前的行驻波：$|E|$ 与 $|H|$ 的波腹、波节沿 $z$ 错开 $\lambda/4$；进入媒质 2 后是幅度为透射系数的行波，不再有驻波起伏（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
 **能量守恒。** $\dfrac{|E_0^i|^2}{2\eta_1}=\dfrac{|E_0^r|^2}{2\eta_1}+\dfrac{|E_0^t|^2}{2\eta_2}$，即 $1=|R|^2+\dfrac{\eta_1}{\eta_2}|T|^2$。注意透射系数 $T$ 可以大于 1（$\eta_2>\eta_1$ 时），但透射**功率**不会超过入射功率。
 
 !!! example "例题 6.4（介质分界面的垂直入射）"
@@ -327,6 +332,22 @@ $$E_1=E_0^i\left(\mathrm e^{-\je k_1z}+R\,\mathrm e^{\je k_1z}\right),\qquad|E_1
 !!! note "前后联系：平面波垂直入射 = 传输线端接负载"
 
     把 $E\leftrightarrow U$、$H\leftrightarrow I$、$\eta\leftrightarrow Z_0$ 对应起来，本节的每一个公式都会在第 7 章重现：$R=\dfrac{Z_L-Z_0}{Z_L+Z_0}$、驻波比 $S=\dfrac{1+|\Gamma|}{1-|\Gamma|}$、短路线上的纯驻波、$\lambda/4$ 阻抗变换器（在两种介质间插入厚 $\lambda/4$、$\eta=\sqrt{\eta_1\eta_3}$ 的介质层消除反射，即光学增透膜）。原因是两者满足同样的方程 $\dfrac{\dd^2E}{\dd z^2}+k^2E=0$ 和同样的边界条件（$E$、$H$ 切向连续 ↔ $U$、$I$ 连续）。
+
+!!! info "拓展：多层介质与传输线类比"
+
+    一层厚度为 $d$、波阻抗为 $\eta_2$ 的介质夹在媒质 1 与媒质 3 之间，垂直入射时，在前界面处向里看的输入波阻抗与第 7 章传输线的输入阻抗形式完全相同：
+
+    $$Z(-d)=\eta_2\frac{\eta_3\cos\beta_2 d+\je\eta_2\sin\beta_2 d}{\eta_2\cos\beta_2 d+\je\eta_3\sin\beta_2 d},\qquad R=\frac{Z(-d)-\eta_1}{Z(-d)+\eta_1}.$$
+
+    两个最有用的特例：
+
+    **1. 半波介质窗。** 若两侧是同一种媒质（$\eta_1=\eta_3$，例如空气–介质–空气），且 $d=n\lambda_2/2$（$n=1,2,\ldots$），则 $\beta_2 d=n\pi$、$Z(-d)=\eta_3=\eta_1$，反射系数为零：这块介质对这个频率“隐身”，全部透射。雷达天线罩、微波观察窗就是按这个条件选取厚度的。例如 $5$ GHz 的波垂直入射到 $\varepsilon_r=4$ 的介质板（$n=2$），板内波长 $\lambda_2=c/(f\sqrt{\varepsilon_r})=3$ cm，无反射的最小厚度为 $\lambda_2/2=1.5$ cm，一般写作 $d=\lambda_0/(2\sqrt{\varepsilon_r})$。
+
+    **2. $\lambda/4$ 匹配层（增透膜）。** 若 $d=(2n+1)\lambda_2/4$，则 $Z(-d)=\eta_2^2/\eta_3$。要使它等于 $\eta_1$，只需
+
+    $$\eta_2=\sqrt{\eta_1\eta_3}\qquad\text{（非磁性媒质即 }\varepsilon_2=\sqrt{\varepsilon_1\varepsilon_3}\text{）}.$$
+
+    这就是光学增透膜，也是第 7 章 $\lambda/4$ 阻抗变换器的场论原型。半波窗只在离散的频率上全透射，带宽较窄；$\lambda/4$ 匹配把反射在中心频率上消掉，在附近一个频带内也保持较小。
 
 ---
 
@@ -402,6 +423,13 @@ $$\theta_B=\arcsin\sqrt{\frac{\varepsilon_2}{\varepsilon_1+\varepsilon_2}}=\arct
 
     非磁性媒质中，$\theta_i=\theta_B$ 时可以验证 $\theta_i+\theta_t=90^\circ$。媒质 2 中被透射波电场驱动的极化偶极子沿透射波的 $\vv E$ 方向振动（平行极化时在入射面内），而偶极子在其轴线方向不辐射。反射波正好要沿这个方向出射，所以没有反射。
 
+<figure markdown>
+![反射系数随入射角的变化](assets/img/ref_ch6_reflection_vs_angle.png){ width="560" }
+<figcaption>图 6-B　空气入射到干土（$\varepsilon_r=3$）、湿土（$25$）和水面（$81$）时，$|\Gamma_\perp|$（虚线）与 $|\Gamma_{/\!/}|$（实线）随入射角的变化。平行极化在布儒斯特角降到零（分别约为 $60^\circ$、$79^\circ$、$84^\circ$）；掠入射（$\theta_i\to 90^\circ$）时两种极化的 $|\Gamma|$ 都趋于 $1$，计及相位即 $\Gamma\to-1$，第 10 章两径模型正是用了这一点（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
+这个曲线还有一个日常应用：拍摄玻璃橱窗时，把相机放在布儒斯特角附近（普通玻璃 $n\approx 1.5$，$\theta_B\approx 56^\circ$），再让偏振片的透振方向位于入射面内，就可以滤掉残余的垂直极化反射光，拍到里面的陈列。
+
 ---
 
 ## 知识点归纳总结
@@ -446,6 +474,7 @@ flowchart LR
 - 垂直入射中 $T=1+R$ 可以大于 1，这并不违反能量守恒。
 - 斜入射时平行与垂直极化的定义以**入射面**为参照，不是以分界面为参照。
 - 布儒斯特角只对平行极化存在；全反射只在从光密到光疏时发生。
+- 多层介质可等效为一段传输线：半波厚度（$d=n\lambda_2/2$）全透射，$\lambda/4$ 且 $\eta_2=\sqrt{\eta_1\eta_3}$ 时无反射。
 
 ---
 
@@ -558,6 +587,98 @@ flowchart LR
         (1) $\delta=\dfrac{1}{\sqrt{\pi\times2\times10^5\times4\pi\times10^{-7}\times5.8\times10^7}}=1.48\times10^{-4}\ \mathrm m$，$5\delta\approx0.74\ \mathrm{mm}$。
 
         (2) $\delta(10\ \mathrm{kHz})=0.66\ \mathrm{mm}$，$5\delta\approx3.3\ \mathrm{mm}$。穿过 $5\delta$ 后场强只剩 $\mathrm e^{-5}\approx0.7\%$（约 $-43$ dB）。
+
+!!! example "练习 9"
+
+    空气（$z<0$）与介质 $\varepsilon=4\varepsilon_0$、$\mu=\mu_0$（$z>0$）的分界面为 $z=0$。入射波磁场
+
+    $$\vv H_i=(\sqrt{3}\ax+\az)\mathrm e^{\je 2(x-\sqrt{3}z)}\ \mathrm{A/m}.$$
+
+    求 (1) 角频率、介质中的波长、入射角和折射角；(2) 入射波电场，并判断极化；(3) 反射系数与透射系数；(4) 进入介质的平均功率流密度（沿分界面法向）。
+
+    ??? success "答案"
+
+        本书时间因子为 $\mathrm e^{\je\omega t}$，沿 $\vv k$ 传播的波写成 $\mathrm e^{-\je\vv k\cdot\vv r}$。给定的指数 $\mathrm e^{\je 2(x-\sqrt{3}z)}=\mathrm e^{-\je\vv k_i\cdot\vv r}$ 对应
+
+        $$\vv k_i=-2\ax+2\sqrt{3}\az,\qquad k_i=4\ \mathrm{rad/m}.$$
+
+        $k_{iz}>0$，波从 $z<0$ 射向分界面。空气中 $k=\omega/c$，故 $\omega=1.2\times10^9\ \mathrm{rad/s}$。介质中 $k_2=2k_i=8\ \mathrm{rad/m}$，$\lambda_2=2\pi/8=0.785\ \mathrm m$。
+
+        $\sin\theta_i=|k_{ix}|/k_i=1/2$，$\theta_i=30^\circ$。由斯涅尔定律 $\sin\theta_t=\sin\theta_i/2=1/4$，$\theta_t=\arcsin(1/4)=14.48^\circ$。
+
+        (2) $\vv a_k=\vv k_i/k_i=(-1/2)\ax+(\sqrt{3}/2)\az$，$\vv E_i=\eta_0\vv a_k\times\vv H_i=-\ay 240\pi\,\mathrm e^{\je 2(x-\sqrt{3}z)}\ \mathrm{V/m}$。$\vv E$ 垂直于入射面（$xz$ 面），是**垂直极化**。
+
+        (3) $\eta_2=\eta_0/2$，$\cos\theta_t=\sqrt{15}/4$，
+
+        $$R_\perp=\frac{\cos\theta_i-2\cos\theta_t}{\cos\theta_i+2\cos\theta_t}=\frac{\sqrt{3}-\sqrt{15}}{\sqrt{3}+\sqrt{15}}=-0.382,\qquad T_\perp=1+R_\perp=0.618.$$
+
+        (4) 入射功率流密度 $S_i=|E_i|^2/(2\eta_0)=240\pi\ \mathrm{W/m^2}$。透射波 $|E_t|=T_\perp|E_i|$，$S_t=|E_t|^2/(2\eta_2)=240\pi(3-\sqrt{5})$，沿法向进入介质的平均功率为
+
+        $$S_t\cos\theta_t=60\pi(3-\sqrt{5})\sqrt{15}=557.7\ \mathrm{W/m^2}.$$
+
+        用 $|R_\perp|^2 S_i\cos\theta_i$ 加上这项，正好等于入射法向功率 $S_i\cos\theta_i=120\pi\sqrt{3}$，能量守恒。
+
+!!! example "练习 10"
+
+    已知电场复振幅 $\vv E=(\ax-\je 0.5\ay)E_0\cos kz$。求 (1) $\vv H$；(2) 平均坡印廷矢量与瞬时坡印廷矢量；(3) 把电场拆成沿 $+z$ 与沿 $-z$ 传播的两个分量，判断沿 $-z$ 那个分量的极化。
+
+    ??? success "答案"
+
+        (1) 这是驻波，不能套用行波公式 $\vv H=\vv a_k\times\vv E/\eta$。由 $\vv H=-(\nabla\times\vv E)/(\je\omega\mu)$：
+
+        $$\vv H=\frac{k E_0}{\omega\mu}(0.5\ax-\je\ay)\sin kz.$$
+
+        (2) $\vv E\times\vv H^*$ 的 $z$ 分量是纯虚数，故 $\vv S_{\mathrm{av}}=0$。瞬时值
+
+        $$E_x=E_0\cos kz\cos\omega t,\quad E_y=0.5 E_0\cos kz\sin\omega t,$$
+
+        $$H_x=0.5\frac{k E_0}{\omega\mu}\sin kz\cos\omega t,\quad H_y=\frac{k E_0}{\omega\mu}\sin kz\sin\omega t,$$
+
+        于是
+
+        $$\vv S(t)=\az\frac{3k E_0^2}{16\omega\mu}\sin 2kz\sin 2\omega t.$$
+
+        能量只在相邻的 $\lambda/4$ 段之间以 $2\omega$ 来回振荡，没有净传输。
+
+        (3) $\cos kz=(e^{\je kz}+e^{-\je kz})/2$，沿 $-z$ 的分量为 $0.5(\ax-\je 0.5\ay)E_0 e^{\je kz}$。$\Delta\varphi=-\pi/2$、振幅不等：对沿 $+z$ 传播的波这是右旋椭圆极化，传播方向反过来以后旋向也反过来，所以沿 $-z$ 的分量是**左旋椭圆极化**。
+
+!!! example "练习 11"
+
+    真空中平面波 $\vv E=(2\ax+2\je\ay)\mathrm e^{-\je 30z}\ \mathrm{V/m}$ 垂直入射到 $z=0$ 处的理想导体（导体位于 $z>0$）。求 (1) 入射波的极化与频率；(2) 反射波电场及其极化；(3) 导体表面电流的复数形式和幅值。
+
+    ??? success "答案"
+
+        (1) $k=30\ \mathrm{rad/m}$，$f=ck/(2\pi)=1.43\ \mathrm{GHz}$。$E_x=2$、$E_y=2\je$，等幅且 $\Delta\varphi=+\pi/2$，沿 $+z$ 传播：**左旋圆极化**。
+
+        (2) 导体表面切向电场为零，故 $E_0^r=-E_0^i$，
+
+        $$\vv E_r=-(2\ax+2\je\ay)\mathrm e^{\je 30z}\ \mathrm{V/m}.$$
+
+        两个分量的相位差仍是 $+\pi/2$，但传播方向变为 $-z$，旋向相反，反射波是**右旋圆极化**。圆极化波在理想导体上反射，左旋变成右旋（练习 6 在介质分界面上也有同样的旋向反转）。
+
+        (3) $\vv H_i=(2/\eta_0)(-\je\ax+\ay)\mathrm e^{-\je 30z}$，反射波使表面处切向磁场加倍（磁场波腹）。$\an=-\az$（由导体指向空气），
+
+        $$\vv J_S=\an\times(\vv H_i+\vv H_r)\big|_{z=0}=\frac{4}{120\pi}(\ax+\je\ay)=\frac{1}{30\pi}(\ax+\je\ay)\ \mathrm{A/m}.$$
+
+        这是一个随时间旋转的面电流，幅值 $|J_S|=\sqrt{2}/(30\pi)=1.50\times10^{-2}\ \mathrm{A/m}$。
+
+!!! example "练习 12"
+
+    某区域中电场沿 $2\ax-\ay$ 方向，磁场沿 $\ax+2\ay+\az$ 方向。把这列波看作沿某个“纵向”传播的导行波时：沿哪个方向取纵向，可以把它当成 TM 波？沿哪个方向是 TE 波？沿哪个方向是 TEM 波？
+
+    ??? success "答案"
+
+        先验证 $\vv E\cdot\vv H=2-2+0=0$，两个场正交，可以构成电磁波。
+
+        - **TM** 要求纵向磁场为零、纵向电场不为零，即纵向 $\hat\ell$ 满足 $\hat\ell\perp\vv H$ 且 $\hat\ell\not\perp\vv E$。例如 $\ax-\az$，或就取电场方向 $2\ax-\ay$。
+        - **TE** 要求 $\hat\ell\perp\vv E$ 且 $\hat\ell\not\perp\vv H$，例如就取磁场方向 $\ax+2\ay+\az$。
+        - **TEM** 要求纵向与 $\vv E$、与 $\vv H$ 都垂直，即沿坡印廷方向 $\vv E\times\vv H=-\ax-2\ay+5\az$。
+
+        区分散 TE、TM、TEM，只要看纵向分量：只有 $E_\ell$ 的是 TM，只有 $H_\ell$ 的是 TE，两个纵向分量都为零的是 TEM。
+
+!!! quote "参考资料"
+
+    本章图 6-A、图 6-B 取自[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；练习 9、10 改编自[东南大学电磁场试卷](https://github.com/zhufeiyu2023/diancichangyubo)，练习 11、12 改编自[浙江大学 icicles](https://github.com/QSCTech/zju-icicles) 收录的试题（练习 11 原为浙工大试卷）。
 
 ---
 

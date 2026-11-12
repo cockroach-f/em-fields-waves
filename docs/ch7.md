@@ -252,6 +252,16 @@ $$U(z)=\je2A_1\sin\beta z,\qquad I(z)=\frac{2A_1}{Z_0}\cos\beta z,\qquad u(z,t)=
 
 波腹、波节处阻抗为纯电阻，是因为那里 $\Gamma$ 为实数。这两个位置是测量和匹配的“抓手”：测出 $\rho$ 和第一个波节位置，就能反推负载（例题 7.3）；在波腹或波节处接入 $\lambda/4$ 变换器，就能匹配复数负载（7.7 节）。
 
+<figure markdown>
+![四种负载的行驻波分布](assets/img/ref_ch7_load_types.png){ width="720" }
+<figcaption>图 7-A　四种负载的行驻波：$R_L<Z_0$ 时负载处为电压波节，$R_L>Z_0$ 时为电压波腹；感性负载的第一个电压波腹、容性负载的第一个电压波节都在离负载不到 $\lambda/4$ 处。坐标从负载量起（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
+<figure markdown>
+![沿线输入阻抗的实部与虚部](assets/img/ref_ch7_Zin_along.png){ width="700" }
+<figcaption>图 7-B　任意负载沿线的输入电阻 $R$ 与电抗 $X$：每经过 $\lambda/4$，$R$ 达到一次极大或极小（对应电压波腹或波节，该处 $X=0$），$X$ 则在正负之间交替变化，周期为 $\lambda/2$（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
 !!! example "例题 7.2（负载上的状态参量）"
 
     $Z_0=50\ \Omega$ 的无耗线接负载 $Z_L=(25+\je50)\ \Omega$。求 $\Gamma_L$、$\rho$、第一个电压波腹和波节的位置及其阻抗，以及距负载 $\lambda/8$ 处的输入阻抗。
@@ -307,6 +317,16 @@ $$U(z)=\je2A_1\sin\beta z,\qquad I(z)=\frac{2A_1}{Z_0}\cos\beta z,\qquad u(z,t)=
 <figure markdown>
 ![短路及开路传输线的等效元件](assets/img/ch7/fig7-5.jpg){ width="620" }
 <figcaption>图 7-5　短路线（左）与开路线（右）沿线输入电抗的变化及等效元件（图源：教材）</figcaption>
+</figure>
+
+<figure markdown>
+![短路线的电压、电流与输入阻抗](assets/img/ref_ch7_shorted_line.png){ width="480" }
+<figcaption>图 7-C　终端短路：$|U|$、$|I|$ 沿正弦分布，负载处为电压波节、电流波腹；对应的输入电抗在每个 $\lambda/4$ 段分别等效为电感、并联谐振、电容、串联谐振（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
+<figure markdown>
+![开路线的电压、电流与输入阻抗](assets/img/ref_ch7_open_line.png){ width="480" }
+<figcaption>图 7-D　终端开路：分布比短路线平移了 $\lambda/4$（阴影段），负载处为电压波腹、电流波节；输入阻抗的性质也整体平移 $\lambda/4$（图源：上海交大何广强《电磁场与波》课件）</figcaption>
 </figure>
 
 所以 $l<\lambda/4$ 的短路线可以代替感抗为 $X_L$ 的电感，开路线可以代替容抗为 $X_C$ 的电容，所需长度
@@ -882,6 +902,75 @@ flowchart LR
         $\varepsilon_e=1+0.4\times9=4.6$，$\sqrt{\varepsilon_e}=2.145$。
 
         $$Z_0=\frac{40}{2.145}=18.65\ \Omega,\qquad v_p=\frac{c}{\sqrt{\varepsilon_e}}=1.40\times10^8\ \mathrm{m/s},\qquad\lambda_g=\frac{\lambda_0}{\sqrt{\varepsilon_e}}=0.466\lambda_0 .$$
+
+!!! example "练习 9"
+
+    坐标原点在负载处，$z$ 轴由负载指向电源（与本章一致）。(1) 无耗线上观察到纯驻波，电压波节分别位于：(a) $z=0$；(b) $z=\lambda/4$；(c) $0<z<\lambda/4$；(d) $\lambda/4<z<\lambda/2$。判断负载的类型。(2) 终端开路时，离负载 $\lambda/8$ 处的反射系数是多少？
+
+    ??? success "答案"
+
+        (1) 电压波节出现在 $\Gamma(z)=\Gamma_L\mathrm e^{-\je 2\beta z}$ 为负实数的地方。
+
+        - (a) $z=0$ 就是波节：$\Gamma_L=-1$，**短路**。
+        - (b) $z=\lambda/4$ 才是第一个波节：负载处为波腹，$\Gamma_L=+1$，**开路**。
+        - (c) 第一个波节在 $0$ 与 $\lambda/4$ 之间：负载等效于一段短于 $\lambda/4$ 的开路线，输入阻抗为负电抗，**容性纯电抗**。
+        - (d) 第一个波节在 $\lambda/4$ 与 $\lambda/2$ 之间：负载等效于一段短于 $\lambda/4$ 的短路线，**感性纯电抗**（图 7-A 把行驻波的情形也画出来了：感性负载第一个电压波腹就在 $\lambda/4$ 以内，再过 $\lambda/4$ 才到波节）。
+
+        如果把原点放在电源端、把 $z$ 指向负载，上面的位置关系要整体反过来，结论会写反。做题前先看清坐标。
+
+        (2) $\Gamma_L=+1$，$\Gamma(z)=\mathrm e^{-\je 2\beta z}$。$z=\lambda/8$ 时 $2\beta z=\pi/2$，故 $\Gamma(\lambda/8)=\mathrm e^{-\je\pi/2}=-\je$。若误用“离负载越远相位越超前”的相反约定，会得到 $+j$，符号正好反了。
+
+!!! example "练习 10"
+
+    $Z_0=50\ \Omega$ 的无耗线上测得 $U_{\max}=10$ V，$U_{\min}=6$ V，离负载最近的电压波节在 $0.12\lambda$ 处。求驻波比、终端反射系数的模，以及负载阻抗。
+
+    ??? success "答案"
+
+        $\rho=10/6=5/3$，$|\Gamma_L|=(\rho-1)/(\rho+1)=1/4$。由例题 7.3 的公式，把波节处的纯电阻 $Z_0/\rho$ 向负载方向移 $l_{\min}$：
+
+        $$Z_L=Z_0\frac{1-\je\rho\tan\beta l_{\min}}{\rho-\je\tan\beta l_{\min}}.$$
+
+        $\beta l_{\min}=0.24\pi$，$\tan\beta l_{\min}=\tan 43.2^\circ=0.939$，代入得
+
+        $$Z_L\approx(42.9-\je 22.8)\ \Omega.$$
+
+        第一个波节离负载不到 $\lambda/4$，由练习 9，$Z_L$ 的电抗为负，与计算结果一致。
+
+!!! example "练习 11"
+
+    长 $25$ m、填充 $\varepsilon_r=4$、特性阻抗 $Z_0=300\ \Omega$ 的无耗线，始端接幅值为 $100$ V、频率 $3$ MHz、内阻 $Z_g=200\ \Omega$ 的信号源。测得驻波比为 $1.5$，且终端为电压波节。求相速、线上波长、负载电阻、始端电压、负载吸收的平均功率，以及线上的电压波腹和波节值。
+
+    ??? success "答案"
+
+        $v_p=c/\sqrt{\varepsilon_r}=1.5\times10^8\ \mathrm{m/s}$，$\lambda=v_p/f=50$ m，线长正好是 $\lambda/2$，故 $Z_{\mathrm{in}}=Z_L$。终端是电压波节，负载为纯电阻且 $R_L=Z_0/\rho=300/1.5=200\ \Omega$，于是 $Z_{\mathrm{in}}=200\ \Omega$。
+
+        始端分压 $U_{\mathrm{in}}=E_g Z_{\mathrm{in}}/(Z_g+Z_{\mathrm{in}})=50$ V。无耗线上负载吸收的平均功率等于始端输入功率（复振幅为峰值）
+
+        $$P_L=\frac{|U_{\mathrm{in}}|^2}{2R_{\mathrm{in}}}=\frac{50^2}{2\times200}=6.25\ \mathrm W.$$
+
+        $\lambda/2$ 线上 $|U|$ 周期重复，终端与始端都是波节：$U_{\min}=50$ V，$U_{\max}=\rho U_{\min}=75$ V。
+
+!!! example "练习 12"
+
+    信号源 $E_g=900$ V（峰值）、$Z_g=450\ \Omega$ 接到特性阻抗 $Z_{02}=450\ \Omega$ 的无耗线 AB 上。B 处并联电阻 $R=900\ \Omega$，同时经特性阻抗 $Z_{01}=600\ \Omega$ 的 $\lambda/4$ 变换器接到负载 $Z_L=400\ \Omega$。求 (1) 变换器段的终端反射系数与驻波比；(2) AB 段是否为行波；(3) A 点的电压、电流以及电源输出的平均功率；(4) 负载吸收的功率。
+
+    ??? success "答案"
+
+        (1) 变换器看向负载：$\Gamma_L=(400-600)/(400+600)=-0.2$，$|\Gamma_L|=0.2$，$\rho=1.5$。
+
+        (2) $\lambda/4$ 变换把 $Z_L$ 变成 $Z_L'=Z_{01}^2/Z_L=600^2/400=900\ \Omega$，再与 $R=900\ \Omega$ 并联得 $450\ \Omega$，恰好等于 $Z_{02}$，所以 AB 段匹配，是**行波**。
+
+        (3) 从 A 点向右看 $Z_{\mathrm{in}}=450\ \Omega=Z_g$，源端共轭匹配（两者都是实数），
+
+        $$U_A=E_g\frac{Z_{\mathrm{in}}}{Z_g+Z_{\mathrm{in}}}=450\ \mathrm V,\qquad I_A=\frac{U_A}{Z_{\mathrm{in}}}=1\ \mathrm A.$$
+
+        电源输出的平均功率 $P=\frac12\Re(U_A I_A^*)=225$ W。
+
+        (4) AB 段无反射，这 $225$ W 全部到达 B。B 处两个 $900\ \Omega$ 并联均分，负载经 $\lambda/4$ 变换器看来也是 $900\ \Omega$，故 $Z_L$ 吸收 $112.5$ W。
+
+!!! quote "参考资料"
+
+    本章图 7-A、图 7-B、图 7-C、图 7-D 取自[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；练习 9–12 改编自[浙江大学 icicles](https://github.com/QSCTech/zju-icicles) 收录的课程测验与期中试题。
 
 ---
 

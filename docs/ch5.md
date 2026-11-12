@@ -80,6 +80,11 @@ $\vv J+\partial\vv D/\partial t$ 才是处处连续的“全电流”。
 
     $$\oint_C\vv H\cdot\dd\vv l=\int_S\left(\vv J+\frac{\partial\vv D}{\partial t}\right)\cdot\dd\vv S,\qquad\nabla\times\vv H=\vv J+\frac{\partial\vv D}{\partial t}.$$
 
+<figure markdown>
+![电容器中的位移电流](assets/img/ref_ch5_displacement.png){ width="420" }
+<figcaption>图 5-A　给平行板电容器充电时，导线里是传导电流，极板之间是位移电流 $\vv J_D=\partial\vv D/\partial t$；两者大小相等，在周围激发同样环绕的磁场（图源：郭辉萍教材配套课件）</figcaption>
+</figure>
+
 !!! example "例题 5.2（海水中的位移电流）"
 
     海水的 $\sigma=4\ \mathrm{S/m}$，$\varepsilon_r=81$。求 $f=1\ \mathrm{MHz}$ 时位移电流与传导电流的幅值之比（$\vv E=\ax E_0\cos\omega t$）。
@@ -157,6 +162,11 @@ $\vv J+\partial\vv D/\partial t$ 才是处处连续的“全电流”。
 
 为什么理想导体内时变磁场也为零：导体内 $\vv E=0$，由 $\nabla\times\vv E=-\partial\vv B/\partial t$ 得 $\vv B$ 不随时间变化；对时变场，这个不变的部分只能是零。良导体（如铜）与空气的分界面，在射频以上常近似当作理想导体处理（第 6 章的趋肤深度说明了原因）。
 
+<figure markdown>
+![时变场边界条件汇总](assets/img/ref_ch5_boundary.png){ width="640" }
+<figcaption>图 5-B　时变场边界条件一览：法向的 $D_n$、$B_n$、$J_n$ 与切向的 $E_t$、$H_t$ 画在同一张图上，$D_{1n}-D_{2n}=\rho_S$，$H_{1t}-H_{2t}=J_S$（图源：SCUTEEE 开源笔记）</figcaption>
+</figure>
+
 !!! example "例题 5.3（平行板间的电磁波）"
 
     两理想导体平板 $z=0$、$z=d$ 之间的空气中，$\vv E=\ay E_0\sin\dfrac{\pi z}{d}\cos(\omega t-k_xx)$。求 (1) $\vv H$；(2) 验证边界条件并求两板上的面电流。
@@ -224,6 +234,13 @@ $$-\nabla\cdot(\vv E\times\vv H)=\vv H\cdot\frac{\partial\vv B}{\partial t}+\vv 
     $$S_\rho=-E_zH_\phi=-\frac{I}{\pi a^2\sigma}\cdot\frac{I}{2\pi a}=-\frac{I^2}{2\pi^2a^3\sigma}\quad(\text{指向导体内}).$$
 
     单位长度进入内导体的功率 $P=\dfrac{I^2}{2\pi^2a^3\sigma}\cdot2\pi a=I^2\dfrac{1}{\pi a^2\sigma}=I^2R_0$，恰好等于导体内的焦耳热，$R_0$ 为单位长度电阻。
+
+<figure markdown>
+![双导线电路的坡印廷能流](assets/img/ref_ch5_poynting_flow.png){ width="720" }
+<figcaption>图 5-C　接电阻负载的双导线：电场 $\vv E$ 由正极指向负极，磁场 $\vv H$ 环绕电流，坡印廷矢量 $\vv S=\vv E\times\vv H$ 从电源附近的空间流出，沿导线外侧传播，再从侧面进入负载。能量并不是“在导线里面走”的（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
+
+电路里的电能传输都是这个图像：导体只负责引导电场和磁场，真正的功率在导线周围的空间中流动。电阻发热所需的能量，也是从它的侧面流进去的。练习 9 用有耗平行板电容器把这件事算一遍。
 
 !!! note "前后联系：场观点与电路观点"
 
@@ -509,6 +526,89 @@ flowchart TD
         $$\vv S_{\text{av}}=\frac12\Re\left[\vv E_0\times\vv H_0\mathrm e^{\je(\varphi_e-\varphi_m)}\right]=\frac12\vv E_0\times\vv H_0\cos(\varphi_e-\varphi_m).$$
 
         $\varphi_e-\varphi_m=\pm90^\circ$ 时平均能流为零：能量只在电场和磁场之间来回交换，没有净传输，复坡印廷矢量为纯虚数（无功功率）。第 6 章的驻波、理想导体前的场就是这种情况。
+
+!!! example "练习 9"
+
+    半径为 $a$ 的圆形平行板电容器，板间距为 $d$，中间均匀填充电导率为 $\sigma$ 的有耗介质。两板之间加直流电压 $U$，上板电位较高。求板间的电场、传导电流密度、磁场和坡印廷矢量，并证明从侧面流入介质的总功率等于介质的焦耳损耗 $U^2/R$。
+
+    ??? success "答案"
+
+        取圆柱坐标，原点在两板之间，$z$ 轴由下板指向上板。板间电场均匀：
+
+        $$\vv E=-\az\frac{U}{d},\qquad\vv J=\sigma\vv E=-\az\frac{\sigma U}{d}.$$
+
+        在半径 $r<a$ 处取绕 $z$ 轴的圆回路。穿过该回路所张圆面的电流沿 $-\az$，大小为 $(\sigma U/d)\pi r^2$，故
+
+        $$\vv H=-\aphi\frac{\sigma U r}{2d}.$$
+
+        由 $\az\times\aphi=-\ar$，
+
+        $$\vv S=\vv E\times\vv H=-\ar\frac{\sigma U^2 r}{2d^2}.$$
+
+        $\vv S$ 沿径向指向轴心，能量从圆柱侧面流入。侧面 $r=a$ 上 $|S|=\sigma U^2 a/(2d^2)$，侧面积 $2\pi a d$，流入的总功率
+
+        $$P=\frac{\sigma U^2 a}{2d^2}\cdot 2\pi a d=\frac{\sigma U^2\pi a^2}{d}.$$
+
+        两板之间介质的直流电阻 $R=d/(\sigma\pi a^2)$，所以 $P=U^2/R$，正好是焦耳损耗。电源输出的功率并不是“沿导线内部”送到介质里的，而是从电容器的侧面流进去的。
+
+!!! example "练习 10"
+
+    无源真空中 $\vv B=\ay 10^{-2}\cos(6\pi\times10^8 t)\cos(2\pi z)$ T。求位移电流密度。
+
+    ??? success "答案"
+
+        无源区 $\nabla\times\vv H=\partial\vv D/\partial t=\vv J_d$，即 $\vv J_d=(\nabla\times\vv B)/\mu_0$。$B$ 只有 $y$ 分量且只随 $z$ 变化：
+
+        $$(\nabla\times\vv B)_x=-\frac{\partial B_y}{\partial z}=2\pi\times10^{-2}\cos(6\pi\times10^8 t)\sin(2\pi z),$$
+
+        其余分量为零。$\mu_0=4\pi\times10^{-7}\ \mathrm{H/m}$，
+
+        $$\vv J_d=\ax\frac{2\pi\times10^{-2}}{4\pi\times10^{-7}}\cos(6\pi\times10^8 t)\sin(2\pi z)=\ax 5\times10^4\cos(6\pi\times10^8 t)\sin(2\pi z)\ \mathrm{A/m^2}.$$
+
+        这是一个沿 $z$ 的磁场驻波：$\omega/k=(6\pi\times10^8)/(2\pi)=c$，与真空中的波动方程一致。
+
+!!! example "练习 11"
+
+    无源区中磁场的复振幅为 $\vv H=\aphi (H_m/r)\sin\theta\,\mathrm e^{-\je kr}$（$H_m$ 为实常数）。求 (1) 电场的远区主项；(2) 平均坡印廷矢量；(3) 严格计算时 $E_r$ 是什么，它对平均功率有没有贡献？
+
+    ??? success "答案"
+
+        无源时谐场 $\nabla\times\vv H=\je\omega\varepsilon_0\vv E$，即 $\vv E=(\nabla\times\vv H)/(\je\omega\varepsilon_0)$。在球坐标系中，$H$ 只有 $\phi$ 分量：
+
+        $$(\nabla\times\vv H)_\theta=-\frac1r\frac{\partial}{\partial r}(r H_\phi)=\je k\frac{H_m}{r}\sin\theta\,\mathrm e^{-\je kr},\qquad
+        (\nabla\times\vv H)_r=\frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta\,H_\phi)=\frac{2H_m\cos\theta}{r^2}\mathrm e^{-\je kr}.$$
+
+        (1) 远区主项（$1/r$）来自 $(\nabla\times\vv H)_\theta$：
+
+        $$\vv E_\theta=\atheta\frac{k H_m}{\omega\varepsilon_0 r}\sin\theta\,\mathrm e^{-\je kr}.$$
+
+        它与 $H_\phi$ 同相。对应的瞬时坡印廷矢量径向分量为
+
+        $$\vv S_r(t)=\ar\frac{k H_m^2}{\omega\varepsilon_0 r^2}\sin^2\theta\cos^2(\omega t-kr).$$
+
+        (2) $\overline{\cos^2}=1/2$，故
+
+        $$\vv S_{\mathrm{av}}=\ar\frac{k H_m^2}{2\omega\varepsilon_0 r^2}\sin^2\theta.$$
+
+        (3) 严格地说还有径向电场
+
+        $$E_r=\frac{2H_m\cos\theta}{\je\omega\varepsilon_0 r^2}\mathrm e^{-\je kr},$$
+
+        它与 $H_\phi$ 相差 $90^\circ$，只给 $\vv S(t)$ 增加一个 $\propto 1/r^3$ 的 $\atheta$ 向振荡项，时间平均为零，不贡献辐射功率。$E_r$ 属于近区的储能场；平均功率只由远区的 $E_\theta$、$H_\phi$ 携带——这正是“近区储能、远区辐射”的场结构。若只保留 $1/r$ 项，就得到 (1)(2) 的常用结果。
+
+!!! example "练习 12"
+
+    (1) 电流连续性方程与位移电流假说是什么关系？(2) 判断对错并说明理由：“色散媒质一定有损耗；有损耗的媒质一定色散。”
+
+    ??? success "答案"
+
+        (1) 对 $\nabla\times\vv H=\vv J$ 取散度得到 $\nabla\cdot\vv J=0$，与电荷守恒 $\nabla\cdot\vv J=-\partial\rho_V/\partial t$ 矛盾。把高斯定律 $\rho_V=\nabla\cdot\vv D$ 代入连续性方程，立刻得到 $\nabla\cdot(\vv J+\partial\vv D/\partial t)=0$，因此必须把安培定律改成 $\nabla\times\vv H=\vv J+\partial\vv D/\partial t$。位移电流不是一个额外的实验假设，它是让麦克斯韦方程组与电荷守恒自洽的必然结果。
+
+        (2) 对**因果的物质响应**，两者都对，这是 Kramers–Kronig 关系的直观说法：$\varepsilon(\omega)$ 的实部与虚部互为希尔伯特变换，一个随频率变化，另一个就不能在所有频率上恒为零。有耗媒质（例如电导率为常数 $\sigma$）的复介电常数 $\varepsilon_c=\varepsilon-\je\sigma/\omega$ 本身就随频率变化，相速 $v_p=\omega/\beta(\omega)$ 不是常数，所以一定色散（第 6 章 6.2、6.5 节）。反过来，“色散一定有损耗”只对物质色散成立，而且允许在有限频段内损耗很小；波导、周期结构那种由边界几何造成的色散，即使壁是理想导体也可以几乎无耗，不能套用这句话。
+
+!!! quote "参考资料"
+
+    本章图 5-A 取自郭辉萍《电磁场与电磁波》（第 6 版）配套课件（[西安电子科技大学出版社](https://www.xduph.com/pages/BookDetail.aspx?doi=e161cf56-2ab9-4c3c-a69d-66d0f0722d24)）；图 5-C 取自[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；图 5-B 取自 [SCUTEEE 电磁场与电磁波笔记](https://github.com/SCUTEEE/electromagnetic-fields-and-waves)；练习 9 改编自[东南大学电磁场试卷](https://github.com/zhufeiyu2023/diancichangyubo)，练习 10、11 改编自[浙江大学 icicles](https://github.com/QSCTech/zju-icicles) 收录的课程测验。
 
 ---
 
