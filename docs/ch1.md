@@ -137,6 +137,11 @@ $$\dd\vv l=\ar\,\dd r+\atheta\,r\,\dd\theta+\aphi\,r\sin\theta\,\dd\phi,\qquad \
 
 $$\dd\vv S_r=\ar\,r^2\sin\theta\,\dd\theta\,\dd\phi\quad(\text{球面面元}),\qquad \oint_{\text{球面}}\dd S=4\pi r^2 .$$
 
+<figure markdown>
+![球坐标体积元](assets/img/ref_ch1_sph_volume_element.png){ width="640" }
+<figcaption>图 1-A　球坐标的体积元：三条棱长分别是 $\dd r$、$r\,\dd\theta$、$r\sin\theta\,\dd\phi$，相乘即 $\dd V=r^2\sin\theta\,\dd r\,\dd\theta\,\dd\phi$。图中箭头是穿过六个面的通量，后面推导球坐标散度公式时正是“对面相减”（图源：SCUTEEE 开源笔记）</figcaption>
+</figure>
+
 !!! success "关键公式：度量系数（拉梅系数）"
 
     把三种坐标统一写成 $(u_1,u_2,u_3)$，线元 $\dd l_i=h_i\,\dd u_i$：
@@ -203,6 +208,11 @@ $$\dd\vv S_r=\ar\,r^2\sin\theta\,\dd\theta\,\dd\phi\quad(\text{球面面元}),\q
     $$\Psi=\int_S\vv F\cdot\dd\vv S=\int_S F\cos\theta\,\dd S .$$
 
     对闭合曲面，$\oint_S\vv F\cdot\dd\vv S>0$ 表示 $S$ 内有净的**正源**（流出多于流入），$<0$ 表示有净的**负源（汇）**，$=0$ 表示净源为零。
+
+<figure markdown>
+![闭合面通量的三种情形](assets/img/ref_ch1_flux_sign.png){ width="720" }
+<figcaption>图 1-B　闭合面通量的三种情形：矢量线穿过而无增减（$\Psi=0$，无源）；有矢量线终止在面内（$\Psi<0$，有汇）；有矢量线从面内发出（$\Psi>0$，有正源）（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
 
 通量只告诉我们“一块区域里”源的总量。要知道**每一点**的源强，就把区域缩到一点。
 
@@ -309,6 +319,11 @@ $$\nabla\times\vv F=\begin{vmatrix}\ax&\ay&\az\\\dfrac{\partial}{\partial x}&\df
     $$\oint_l\vv F\cdot\dd\vv l=\int_S(\nabla\times\vv F)\cdot\dd\vv S .$$
 
 证明思路与散度定理完全相同：把 $S$ 剖分成小面元，相邻面元的公共边被走两次且方向相反，环量抵消，只剩外边界 $l$。
+
+<figure markdown>
+![斯托克斯定理的剖分图像](assets/img/ref_ch1_stokes_subdivision.png){ width="320" }
+<figcaption>图 1-C　斯托克斯定理的剖分图像：每个小回路的环量 $\approx(\nabla\times\vv F)\cdot\an\Delta S$；内部公共边上的线积分两两抵消，只剩外边界。下图说明曲面可以任意“鼓起”，只要边界 $l$ 不变，结果就不变（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+</figure>
 
 !!! example "例题 1.6（验证斯托克斯定理）"
 
@@ -441,6 +456,19 @@ $$\frac{\partial u}{\partial l}=\left(\ax\frac{\partial u}{\partial x}+\ay\frac{
 > **它的散度是什么？它的旋度是什么？**
 
 这就是为什么全书每种场的基本方程都恰好是“一个散度方程 + 一个旋度方程”。
+
+!!! info "直觉：亥姆霍兹定理是全书的主线"
+
+    电磁学的全部内容，就是一张“源 → 场”的对照表。前四章只有前两行；第 5 章加上后两行，电场和磁场就互为对方的旋度源，于是产生电磁波：
+
+    | 源 | 源的类型 | 产生的场 | 方程 | 章节 |
+    |---|---|---|---|---|
+    | 电荷 $\rho_V$ | 散度源 | $\vv D$（$\vv E$） | $\nabla\cdot\vv D=\rho_V$ | 第 2、3 章 |
+    | 传导电流 $\vv J$ | 旋度源 | $\vv H$（$\vv B$） | $\nabla\times\vv H=\vv J$ | 第 4 章 |
+    | 变化的磁场 $-\partial\vv B/\partial t$ | 旋度源 | $\vv E$ | $\nabla\times\vv E=-\partial\vv B/\partial t$ | 第 5 章 |
+    | 变化的电场 $\partial\vv D/\partial t$（位移电流） | 旋度源 | $\vv H$ | $\nabla\times\vv H=\vv J+\partial\vv D/\partial t$ | 第 5 章 |
+
+    磁场始终没有散度源（$\nabla\cdot\vv B=0$，不存在磁荷）。拿到任何一个场，先问“它的散度源是什么、旋度源是什么”，就知道该用哪一章的方法。
 
 !!! success "关键公式：矢量场的分类"
 
@@ -606,6 +634,20 @@ flowchart TD
         - $\vv A$：对照球坐标变换矩阵的第一列，$\vv A=\ax$，是常矢量，**既无散又无旋**；既可以写成 $\nabla x$，也可以写成旋度（如 $\nabla\times(\az y)$）。没有源。
         - $\vv B=\nabla(\rho z^2\sin\phi)$（逐个分量验证：$\partial_\rho=z^2\sin\phi$，$\frac1\rho\partial_\phi=z^2\cos\phi$，$\partial_z=2\rho z\sin\phi$），所以 $\nabla\times\vv B=\vv 0$，**无旋**，可写成梯度。散度 $\nabla\cdot\vv B=\dfrac{z^2\sin\phi}{\rho}-\dfrac{z^2\sin\phi}{\rho}+2\rho\sin\phi=2\rho\sin\phi$，散度源为 $2\rho\sin\phi$（即 $2y$）。
         - $\vv C$：$\nabla\cdot\vv C=0$，**无散**，可写成旋度；$\nabla\times\vv C=\az(6x-6y)$，旋度源为 $6(x-y)\az$。
+
+!!! example "练习 9"
+
+    (1) 若穿过某闭合曲面的电通量 $\oint_S\vv E\cdot\dd\vv S=0$，能否断定面内各点 $\nabla\cdot\vv E=0$？反过来呢？(2) 矢量 $\vv F=-\ax ay+\ay ax$（$a$ 为常数）能否表示某个恒定磁场的 $\vv B$？若能，求真空中产生它的电流密度。
+
+    ??? success "答案"
+
+        (1) 不能。由散度定理，$\oint_S\vv E\cdot\dd\vv S=\int_V\nabla\cdot\vv E\,\dd V$，通量为零只说明体内散度源的**代数和**为零。例如面内放一个电偶极子：总通量为零，但正、负电荷所在处散度都不为零。反过来，若面内处处 $\nabla\cdot\vv E=0$，则通量一定为零。通量是区域的整体性质，散度是一点的局部性质。
+
+        (2) $\nabla\cdot\vv F=\dfrac{\partial(-ay)}{\partial x}+\dfrac{\partial(ax)}{\partial y}=0$，满足 $\nabla\cdot\vv B=0$，可以是磁通密度。$\nabla\times\vv F=\az\left[\dfrac{\partial(ax)}{\partial x}-\dfrac{\partial(-ay)}{\partial y}\right]=2a\az$，所以 $\vv J=\dfrac{\nabla\times\vv B}{\mu_0}=\az\dfrac{2a}{\mu_0}$：均匀电流密度产生的磁场在圆柱内随 $\rho$ 线性增大（第 4 章练习 2）。
+
+!!! quote "参考资料"
+
+    本章图 1-A 取自 [SCUTEEE 电磁场与电磁波笔记](https://github.com/SCUTEEE/electromagnetic-fields-and-waves)；图 1-B、图 1-C 取自[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；练习 9 改编自[浙江大学 icicles](https://github.com/QSCTech/zju-icicles) 收录的课程测验。
 
 ---
 

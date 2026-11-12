@@ -95,6 +95,11 @@ $$\vv B=\frac{\mu_0}{4\pi}\int_V\vv J\times\left(-\nabla\frac1R\right)\dd V'=\na
 
     与电偶极子 $\vv E=\dfrac{p}{4\pi\varepsilon_0r^3}(2\cos\theta\ar+\sin\theta\atheta)$ 形式完全相同（$p/\varepsilon_0\leftrightarrow\mu_0p_m$）。远处的磁偶极子场与电偶极子场一样，但近处不同：电力线从 $+q$ 出发、终止于 $-q$，磁力线却穿过电流环闭合。
 
+    <figure markdown>
+    ![电偶极子与磁偶极子的场线对比](assets/img/ref_ch4_dipoles.png){ width="520" }
+    <figcaption>图 4-A　电偶极子的电力线（左）与磁偶极子（小电流环）的磁力线（右）：远处形状相同；在偶极子中间，电力线由 $+q$ 指向 $-q$，磁力线却与外部同向穿过电流环，自成闭合曲线（$\nabla\cdot\vv B=0$）（图源：上海交大何广强《电磁场与波》课件）</figcaption>
+    </figure>
+
 ### 4.1.3 磁场强度与安培环路定律
 
 对 $\vv B=\nabla\times\vv A$ 再取旋度，利用 $\nabla\times\nabla\times\vv A=\nabla(\nabla\cdot\vv A)-\nabla^2\vv A$，在恒定电流（$\nabla\cdot\vv J=0$）条件下可以证明 $\nabla\cdot\vv A=0$，且 $\nabla^2\vv A=-\mu_0\vv J$（与 $\nabla^2\dfrac{1}{R}=-4\pi\delta$ 的推导相同）。于是 $\nabla\times\vv B=\mu_0\vv J$。
@@ -190,6 +195,24 @@ $$\vv A=\frac{\mu_0}{4\pi}\int_V\frac{\nabla'\times\vv M}{R}\dd V'+\frac{\mu_0}{
 
 这正是体电流 $\vv J_b$ 和面电流 $\vv J_{Sb}$ 产生的磁矢位。均匀磁化时 $\vv J_b=0$，只剩表面电流（动画 4-3）——与均匀极化的电介质只有表面束缚电荷完全对应。
 
+<figure markdown>
+![磁化的物理过程](assets/img/ref_ch4_magnetization.png){ width="460" }
+<figcaption>图 4-B　磁化的物理过程：无外场时分子磁矩杂乱（左）；外场使其有序排列（中）；均匀磁化时内部相邻分子电流抵消，只剩表面的束缚电流 $\vv J_{Sb}$（右）（图源：教材配套课件）</figcaption>
+</figure>
+
+!!! info "直觉：为什么 $\vv J_b=\nabla\times\vv M$——数一数“套住”回路的分子电流"
+
+    在介质中任取闭合回路 $C$ 及其所张曲面 $S$，问：有多少分子电流净穿过 $S$？
+
+    - 不碰到 $C$ 的分子电流环，要么不穿过 $S$，要么一进一出穿过两次，贡献为零；
+    - 只有**套在 $C$ 上**（与 $C$ 交链）的分子电流恰好穿过 $S$ 一次。
+
+    设分子数密度 $n$、每个分子电流 $i$、环面积矢量 $\Delta\vv S$。套在线元 $\dd\vv l$ 上的分子，其中心必须落在以 $\Delta\vv S$ 为底、$\dd\vv l$ 为母线的小柱体内，个数为 $n\,\Delta\vv S\cdot\dd\vv l$，于是
+
+    $$\dd I_M=n\,i\,\Delta\vv S\cdot\dd\vv l=\vv M\cdot\dd\vv l\quad\Longrightarrow\quad I_M=\oint_C\vv M\cdot\dd\vv l=\int_S(\nabla\times\vv M)\cdot\dd\vv S .$$
+
+    与 $I_M=\int_S\vv J_b\cdot\dd\vv S$ 比较即得 $\vv J_b=\nabla\times\vv M$。这和电介质中“穿出闭合面的偶极子留下 $-\oint\vv P\cdot\dd\vv S$ 的束缚电荷”是同一种计数方法。
+
 !!! theorem "定理 4.4（介质中的安培环路定律）"
 
     把束缚电流也算作源：$\nabla\times\dfrac{\vv B}{\mu_0}=\vv J+\vv J_b=\vv J+\nabla\times\vv M$。定义
@@ -242,6 +265,11 @@ $$\frac{\tan\theta_1}{\tan\theta_2}=\frac{\mu_1}{\mu_2}\qquad(\theta\ \text{为�
 
 **铁磁质表面。** 若 $\mu_1\gg\mu_2$（如铁与空气），则只要 $\theta_1\ne90^\circ$，$\theta_2\approx0$：磁力线几乎垂直地离开铁磁质表面。铁磁质对磁场的作用，类似于导体对静电场的作用，这正是磁路、磁屏蔽的原理。
 
+<figure markdown>
+![高磁导率材料的磁屏蔽](assets/img/ref_ch4_shielding.png){ width="420" }
+<figcaption>图 4-C　低频磁屏蔽：高 $\mu$ 材料制成的屏蔽罩为磁力线提供了低磁阻的通路，磁力线几乎全部从罩壁内绕过，罩内磁场大大减弱（图源：SCUTEEE 开源笔记）</figcaption>
+</figure>
+
 !!! example "例题 4.6（分界面上的直线电流）"
 
     $x<0$ 的半空间是磁导率为 $\mu$ 的均匀媒质，$x>0$ 的半空间为真空，无限长直电流 $I$ 沿 $z$ 轴放在分界面上。求两种媒质中的 $\vv B$ 和磁化电流。
@@ -253,6 +281,11 @@ $$\frac{\tan\theta_1}{\tan\theta_2}=\frac{\mu_1}{\mu_2}\qquad(\theta\ \text{为�
     媒质中 $\vv M=\dfrac{\vv B}{\mu_0}-\dfrac{\vv B}{\mu}$ 沿 $\aphi$，在 $x<0$ 内部 $\nabla\times\vv M=0$；在分界面上 $\vv M$ 与 $\an$ 平行，$\vv M\times\an=0$。磁化电流只能集中在 $z$ 轴上。用 $\oint\dfrac{\vv B}{\mu_0}\cdot\dd\vv l=I+I_m$：
 
     $$I_m=\frac{2\pi\rho B}{\mu_0}-I=\frac{\mu-\mu_0}{\mu+\mu_0}I .$$
+
+    <figure markdown>
+    ![分界面上直线电流的 B 与 H 分布](assets/img/ref_ch4_interface_BH.png){ width="680" }
+    <figcaption>图 4-D　例题 4.6 的数值图（$\mu_r=10$）：$B$ 的等值线是完整的同心圆（$B_n$ 连续），$H$ 在分界面两侧突变，介质一侧的 $H$ 只有真空一侧的 $1/\mu_r$（图源：教材配套课件）</figcaption>
+    </figure>
 
 !!! info "静态场三兄弟：静电场、恒定电场、恒定磁场"
 
@@ -505,6 +538,34 @@ flowchart LR
         $$M=\frac{\mu_0a}{2\pi}\ln\frac{d+b}{d}.$$
 
         (2) $e=-M\dfrac{\dd i}{\dd t}=-M\omega I_m\cos\omega t$，幅值 $\omega MI_m=\dfrac{\mu_0a\omega I_m}{2\pi}\ln\dfrac{d+b}{d}$（第 5 章法拉第定律）。
+
+!!! example "练习 9"
+
+    同轴线内导体半径 $R_1$，外导体半径 $R_2$（厚度不计），内外导体间被一个过轴线的平面分成两半，分别填充磁导率为 $\mu_1$ 和 $\mu_2$ 的磁介质。内导体电流为 $I$。求 (1) 内外导体间的 $\vv B$、$\vv H$；(2) 单位长度的外自感；(3) 单位长度内外导体间的磁场能量。
+
+    ??? success "答案"
+
+        (1) 以轴线为圆心的圆周与分界面**垂直**相交，$\vv B$ 沿 $\aphi$ 是分界面的法向分量，所以两半中 $B$ 相同，$H_1=B/\mu_1$，$H_2=B/\mu_2$。由安培环路定律 $\pi\rho(H_1+H_2)=I$：
+
+        $$B=\frac{\mu_1\mu_2I}{\pi(\mu_1+\mu_2)\rho},\qquad H_1=\frac{\mu_2I}{\pi(\mu_1+\mu_2)\rho},\qquad H_2=\frac{\mu_1I}{\pi(\mu_1+\mu_2)\rho}.$$
+
+        (2) 单位长度磁通 $\Psi=\displaystyle\int_{R_1}^{R_2}B\,\dd\rho=\frac{\mu_1\mu_2I}{\pi(\mu_1+\mu_2)}\ln\frac{R_2}{R_1}$，
+
+        $$L_0=\frac{\mu_1\mu_2}{\pi(\mu_1+\mu_2)}\ln\frac{R_2}{R_1}.$$
+
+        $\mu_1=\mu_2=\mu$ 时回到 $\dfrac{\mu}{2\pi}\ln\dfrac{R_2}{R_1}$。(3) $W_m=\dfrac12L_0I^2=\dfrac{\mu_1\mu_2I^2}{2\pi(\mu_1+\mu_2)}\ln\dfrac{R_2}{R_1}$。这与例题 4.6 是同一类问题：场与分界面垂直时 $B$ 相同，$H$ 不同。
+
+!!! example "练习 10"
+
+    起重机常用电磁铁搬运钢锭，但烧红的钢锭却吸不起来。用磁介质的知识解释。
+
+    ??? success "答案"
+
+        常温下钢是铁磁质，$\mu_r$ 可达 $10^2\sim10^4$，在电磁铁的场中被强烈磁化，磁化电流产生的磁场与电磁铁相互吸引（磁力线几乎全部经钢锭闭合，磁阻小、吸力大）。铁磁性来源于磁畴，温度升高时热运动破坏磁畴内磁矩的有序排列；超过**居里温度**（铁约 $770\ ^\circ\mathrm C$）后磁畴瓦解，钢变为顺磁质，$\mu_r\approx1$，磁化极弱，几乎不受电磁铁吸引。
+
+!!! quote "参考资料"
+
+    本章图 4-B、图 4-D 取自郭辉萍《电磁场与电磁波》（第 6 版）配套课件（[西安电子科技大学出版社](https://www.xduph.com/pages/BookDetail.aspx?doi=e161cf56-2ab9-4c3c-a69d-66d0f0722d24)）；图 4-A 取自[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；图 4-C 取自 [SCUTEEE 电磁场与电磁波笔记](https://github.com/SCUTEEE/electromagnetic-fields-and-waves)；磁化电流的“交链”计数参考了 [liyuxuan3003/ElectromagneticField](https://github.com/liyuxuan3003/ElectromagneticField) 笔记；练习 9、10 改编自[东南大学电磁场试卷](https://github.com/zhufeiyu2023/diancichangyubo)。
 
 ---
 

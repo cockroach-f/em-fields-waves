@@ -139,6 +139,11 @@
 - **球不接地、不带电**：再在球心加 $-q'$，使球的总电荷为零，球的电位为 $\dfrac{-q'}{4\pi\varepsilon_0a}=\dfrac{q}{4\pi\varepsilon_0d}$。
 - **球带电 $Q$**：在球心加 $Q-q'$。
 
+<figure markdown>
+![接地球与不接地球的镜像电荷及场分布](assets/img/ref_ch3_sphere_image.png){ width="680" }
+<figcaption>图 3-A　点电荷（上方红点）与导体球：左为接地球，只有镜像电荷 $q'$，球附近的电力线全部终止在球面上；右为不接地、不带电的球，球心多了 $-q'$，远处的场又像一个总电荷为 $q$ 的点电荷（图源：教材配套课件）</figcaption>
+</figure>
+
 ### 3.3.3 线电荷的镜像
 
 **线电荷与导体圆柱。** 无限长线电荷 $\rho_l$ 平行于接地导体圆柱（半径 $a$），与轴线相距 $d$。镜像线电荷为 $-\rho_l$，位于距轴线 $b=a^2/d$ 处。这是因为两根等量异号线电荷的等位面是一族圆柱面（阿波罗尼斯圆）：到两线距离之比为常数的点构成圆。
@@ -211,6 +216,11 @@ $$\frac{X''}{X}=-\frac{Y''}{Y}=-k^2\quad(\text{分离常数}),\qquad X''+k^2X=0,
 
     在槽的深处，$\dfrac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)}\approx e^{-n\pi(b-y)/a}$，高次项衰减得快得多，所以离盖板稍远处电位分布几乎就是第一项 $\sin\dfrac{\pi x}{a}$ 的形状（见动画 3-2）。
 
+    <figure markdown>
+    ![矩形导体槽内的电位分布](assets/img/ref_ch3_rect_slot.png){ width="460" }
+    <figcaption>图 3-B　矩形槽（盖板电位 100 V，其余三面接地）中的电位曲面与等位线：盖板两端角点处电位从 100 V 突跳到 0，高次谐波只在盖板附近起作用（图源：教材配套课件）</figcaption>
+    </figure>
+
 ### \*3.4.2 圆柱坐标系中的分离变量法
 
 与 $z$ 无关的问题，$\phi=R(\rho)\Phi(\phi)$，$\Phi$ 必须以 $2\pi$ 为周期，所以分离常数取整数 $n$：
@@ -248,6 +258,11 @@ $$\phi(r,\theta)=\sum_{n=0}^\infty\left(A_nr^n+\frac{B_n}{r^{n+1}}\right)P_n(\co
     $$\phi=-E_0\left(r-\frac{a^3}{r^2}\right)\cos\theta,\qquad\rho_S=-\varepsilon_0\frac{\partial\phi}{\partial r}\Big|_{r=a}=3\varepsilon_0E_0\cos\theta .$$
 
     上半球带正电、下半球带负电，总量为零。$\dfrac{a^3E_0\cos\theta}{r^2}$ 正是一个电偶极矩 $p=4\pi\varepsilon_0a^3E_0$ 的电位：导体球在外场中“被感应成”一个电偶极子。球面赤道附近，场的最大值是 $3E_0$。
+
+    <figure markdown>
+    ![均匀电场中的接地导体球](assets/img/ref_ch3_sphere_in_field.png){ width="640" }
+    <figcaption>图 3-C　均匀电场中的接地导体球：等位面在球附近被“挤开”，电力线垂直地终止在球面上，两极处最密（图源：教材配套课件）</figcaption>
+    </figure>
 
 ---
 
@@ -427,6 +442,42 @@ flowchart TD
         $$\phi=\frac{Q}{4\pi\varepsilon_0r}-E_0\left[1-\left(\frac ar\right)^3\right]r\cos\theta\quad(r>a).$$
 
         若改为给定球的电位 $U_0$，则第一项换成 $\dfrac{aU_0}{r}$。
+
+!!! example "练习 9"
+
+    半径为 $a$ 的无限长直导线架在空中，与竖直墙面和水平地面都平行，到墙和地面的距离分别为 $d_1$、$d_2$（$d_1,d_2\gg a$）。墙和地面都看作接地的半无限大理想导体平面。用镜像法求导线与地之间单位长度的电容。
+
+    ??? success "答案"
+
+        两个接地平面成直角（$90^\circ=180^\circ/2$），需要 3 个镜像：关于地面的 $-\rho_l$（距导线 $2d_2$），关于墙面的 $-\rho_l$（距导线 $2d_1$），以及关于墙角的 $+\rho_l$（距导线 $2\sqrt{d_1^2+d_2^2}$）。墙角处电位为零，导线表面的电位为
+
+        $$\phi=\frac{\rho_l}{2\pi\varepsilon_0}\left[\ln\frac1a-\ln\frac1{2d_1}-\ln\frac1{2d_2}+\ln\frac{1}{2\sqrt{d_1^2+d_2^2}}\right]=\frac{\rho_l}{2\pi\varepsilon_0}\ln\frac{2d_1d_2}{a\sqrt{d_1^2+d_2^2}},$$
+
+        $$C_0=\frac{\rho_l}{\phi}=\frac{2\pi\varepsilon_0}{\ln\dfrac{2d_1d_2}{a\sqrt{d_1^2+d_2^2}}}.$$
+
+        检验：$d_1\to\infty$（没有墙）时变为 $\dfrac{2\pi\varepsilon_0}{\ln(2d_2/a)}$，就是单根导线对地的电容。
+
+!!! example "练习 10"
+
+    一张宽为 $a$、向 $+y$ 方向半无限长的导电纸（$0<x<a$，$y>0$），两条长边与空气接触；底边 $y=0$ 上的电位被维持为 $\phi=U_0x/a$。求纸上的稳态电位分布。
+
+    ??? success "答案"
+
+        恒定电场中 $\nabla^2\phi=0$。长边与空气接触，没有电流流出：$J_x=0$，即 $\dfrac{\partial\phi}{\partial x}\Big|_{x=0,a}=0$（**第二类**边界条件）；$y\to\infty$ 处 $\phi$ 有界。
+
+        分离变量后，满足 $X'(0)=X'(a)=0$ 的本征函数是 $\cos\dfrac{n\pi x}{a}$（$n=0,1,2,\dots$）。$n\ge1$ 时 $y$ 向取衰减的 $e^{-n\pi y/a}$；$n=0$ 时取常数（$A+By$ 中的 $B$ 必须为零才有界）。所以
+
+        $$\phi=C_0+\sum_{n=1}^\infty C_n\cos\frac{n\pi x}{a}e^{-n\pi y/a}.$$
+
+        把 $x/a$ 在 $(0,a)$ 上展开成余弦级数：$C_0=\dfrac{U_0}{2}$，$C_n=\dfrac2a\displaystyle\int_0^a\frac{U_0x}{a}\cos\frac{n\pi x}{a}\dd x=\dfrac{2U_0[(-1)^n-1]}{n^2\pi^2}$，即
+
+        $$\phi(x,y)=\frac{U_0}{2}-\frac{4U_0}{\pi^2}\sum_{n=1,3,5,\dots}\frac{1}{n^2}\cos\frac{n\pi x}{a}e^{-n\pi y/a}.$$
+
+        远离底边时 $\phi\to U_0/2$：绝缘边界使电流只能在底边附近横向流动。与例题 3.4 对比：第一类边界条件对应正弦本征函数，第二类边界条件对应余弦本征函数，且多出一个 $n=0$ 的常数项。
+
+!!! quote "参考资料"
+
+    本章图 3-A、图 3-B、图 3-C 取自郭辉萍《电磁场与电磁波》（第 6 版）配套课件（[西安电子科技大学出版社](https://www.xduph.com/pages/BookDetail.aspx?doi=e161cf56-2ab9-4c3c-a69d-66d0f0722d24)）；练习 9 改编自[东南大学电磁场期末样卷](https://github.com/zhufeiyu2023/diancichangyubo)，练习 10 改编自[浙江大学 icicles](https://github.com/QSCTech/zju-icicles) 收录的期末试卷。
 
 ---
 

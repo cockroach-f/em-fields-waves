@@ -408,6 +408,11 @@ $\oint\vv J\cdot\dd\vv S=0$ 就是电路中的**基尔霍夫电流定律**：流
 
     这已远超安全电压。损耗功率 $P=I^2R\approx1.59\times10^6\ \mathrm W$。这就是高压线落地点、变电站接地极周围要设置警戒区，人要**单脚跳**或**并脚**离开的原因。
 
+    <figure markdown>
+    ![半球形接地体周围的电流分布](assets/img/ref_ch2_ground_hemisphere.png){ width="360" }
+    <figcaption>图 2-A　半球形接地体的电流分布：电流沿径向均匀散开，$J\propto1/r^2$，所以电压降和损耗都集中在电极附近的土壤里（图源：教材配套课件）</figcaption>
+    </figure>
+
 **漏电导**：电容器、电缆的绝缘材料不是理想介质（$\sigma\neq0$），在两极之间会有微小的漏电流。$G=I/U$ 叫漏电导，它和电容并联。
 
 !!! example "例题 2.11（两层有损介质的同轴线）"
@@ -426,6 +431,11 @@ $\oint\vv J\cdot\dd\vv S=0$ 就是电路中的**基尔霍夫电流定律**：流
 
 ### 2.6.4 电动势
 
+<figure markdown>
+![电源内部的局外场与库仑场](assets/img/ref_ch2_emf_source.png){ width="220" }
+<figcaption>图 2-B　电源内部同时存在局外场 $\vv E'$（把正电荷从负极搬到正极）和电荷积累产生的库仑场 $\vv E$，二者方向相反；外电路中只有 $\vv E$（图源：教材配套课件）</figcaption>
+</figure>
+
 导电回路中要维持恒定电流，必须有**非静电力**（化学力、电磁感应力等）不断把正电荷从低电位搬到高电位，否则电荷会被静电场推着走到电位平衡为止。单位正电荷受到的非静电力记作 $\vv E'$（局外场），电源**电动势** $\mathscr E=\displaystyle\int_{-}^{+}\vv E'\cdot\dd\vv l$（在电源内部从负极到正极）。整个回路中 $\oint\vv E\cdot\dd\vv l=0$ 仍成立，而 $\oint(\vv E+\vv E')\cdot\dd\vv l=\mathscr E$。第 5 章的感应电动势就是一种 $\vv E'$，那时 $\oint\vv E\cdot\dd\vv l$ 不再为零。
 
 ### 2.6.5 边界条件
@@ -433,6 +443,12 @@ $\oint\vv J\cdot\dd\vv S=0$ 就是电路中的**基尔霍夫电流定律**：流
 由 $\oint\vv J\cdot\dd\vv S=0$ 和 $\oint\vv E\cdot\dd\vv l=0$，与 2.5 节同样的推导给出
 
 $$J_{1n}=J_{2n},\qquad E_{1t}=E_{2t},\qquad\frac{\tan\theta_1}{\tan\theta_2}=\frac{\sigma_1}{\sigma_2}.$$
+
+两种导电媒质分界面上一般会积累自由电荷。设 $\an$ 由媒质 2 指向媒质 1，$J_n$ 为电流密度沿 $\an$ 的分量（两侧相同），则
+
+$$\rho_S=D_{1n}-D_{2n}=\left(\frac{\varepsilon_1}{\sigma_1}-\frac{\varepsilon_2}{\sigma_2}\right)J_n .$$
+
+只有当 $\varepsilon_1/\sigma_1=\varepsilon_2/\sigma_2$（两种媒质的弛豫时间相同）时分界面上才没有自由电荷。一个极端情形：若媒质 1 是理想介质（$\sigma_1=0$），稳态时 $J_n=0$，导电的媒质 2 中 $\vv E_2=0$，它就像电极的延伸，全部电压都加在理想介质层上（练习 6 取 $\sigma_1\to0$ 即得）。
 
 **良导体与不良导体的分界面**（如铜导线与周围的土壤、绝缘层）：$\sigma_1\gg\sigma_2$ 时 $\theta_2\to0$，电流线在不良导体一侧**几乎垂直**于良导体表面流出，所以良导体表面近似为等位面。这是计算接地电阻时把电极看作等位体的依据。
 
@@ -587,6 +603,24 @@ flowchart LR
         最大场强在内导体表面：$E_{\max}=\dfrac{U}{a\ln(b/a)}$。令 $E_{\max}=E_b$，$U=E_ba\ln\dfrac ba$。对 $a$ 求导：$\ln\dfrac ba-1=0$，所以 $a=\dfrac be\approx0.736\ \mathrm{cm}$。
 
         $U_{\max}=E_b\dfrac be=2\times10^7\times\dfrac{0.02}{e}\approx1.47\times10^5\ \mathrm V$。
+
+!!! example "练习 9"
+
+    介电常数为 $\varepsilon$ 的介质球壳，内半径 $a$、外半径 $b$，球心处有点电荷 $q$，壳外是真空。求 (1) 各区域的 $\vv D$、$\vv E$；(2) 球壳中的极化强度和束缚电荷分布，并验证束缚电荷总量为零。
+
+    ??? success "答案"
+
+        (1) 由介质中的高斯定律，各处 $\vv D=\ar\dfrac{q}{4\pi r^2}$；$\vv E=\vv D/\varepsilon_0$（$r<a$ 或 $r>b$），$\vv E=\vv D/\varepsilon$（$a<r<b$）。
+
+        (2) $\vv P=\vv D-\varepsilon_0\vv E=\left(1-\dfrac{\varepsilon_0}{\varepsilon}\right)\dfrac{q}{4\pi r^2}\ar$。体束缚电荷 $\rho_b=-\nabla\cdot\vv P=0$（$\ar/r^2$ 无散）。面束缚电荷 $\rho_{Sb}=\vv P\cdot\an$：
+
+        $$r=a\ (\an=-\ar):\ \rho_{Sb}=-\left(1-\frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi a^2};\qquad r=b\ (\an=\ar):\ \rho_{Sb}=\left(1-\frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi b^2}.$$
+
+        内表面总束缚电荷 $-\left(1-\dfrac{\varepsilon_0}{\varepsilon}\right)q$，外表面 $+\left(1-\dfrac{\varepsilon_0}{\varepsilon}\right)q$，总和为零。内表面的负束缚电荷部分“屏蔽”了 $q$，所以壳内 $E$ 减小为真空时的 $\varepsilon_0/\varepsilon$。
+
+!!! quote "参考资料"
+
+    本章图 2-A、图 2-B 取自郭辉萍《电磁场与电磁波》（第 6 版）配套课件（[西安电子科技大学出版社](https://www.xduph.com/pages/BookDetail.aspx?doi=e161cf56-2ab9-4c3c-a69d-66d0f0722d24)）；分界面电荷的讨论参考了[上海交通大学何广强《电磁场与波》公开课件](https://qnp.sjtu.edu.cn/content.aspx?flag=56&info_lb=56)；练习 9 改编自[东南大学电磁场期末回忆卷](https://github.com/zhufeiyu2023/diancichangyubo)。
 
 ---
 
