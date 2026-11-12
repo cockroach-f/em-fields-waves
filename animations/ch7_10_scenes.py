@@ -237,7 +237,7 @@ class C7_Gamma(Scene):
         self.play(z.animate.set_value(0.5), run_time=8, rate_func=linear)
         note = CT(r"转一整圈 $\Rightarrow$ 沿线移动 $\lambda/2$：$|\Gamma(z)|$ 不变，只有相位在变", 22).next_to(ax, DOWN, buff=0.55)
         fitw(note, 6.6)
-        self.play(FadeIn(note))
+        self.play(FadeOut(zarr), FadeOut(loadt), FadeIn(note))
         self.play(z.animate.set_value(0.75), run_time=4, rate_func=linear)
         self.play(FadeOut(note))
         # 波腹：Γ 落在正实轴（向负载方向移动 → 逆时针）
@@ -420,7 +420,7 @@ class C7_Smith(Scene):
             CT(r"(2)  以 $|\Gamma_L|=" + f"{abs(gL):.3f}" + r"$ 为半径画等 $\rho$ 圆", 22),
             CT(r"(3)  向电源 $0.2\lambda$：顺时针转 $2\beta z=0.8\pi=144^\circ$ 到 $P_2$", 22),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.2)
-        fitw(steps, 6.6).move_to([3.75, 1.4, 0])
+        fitw(steps, 6.3).move_to([3.65, 1.4, 0])
         self.play(FadeIn(steps[0]))
         self.play(FadeIn(steps[1]), FadeIn(d1), FadeIn(l1))
         rc = DashedVMobject(Circle(radius=R * abs(gL), color=WHITE, stroke_width=2).move_to(c), num_dashes=60)
@@ -497,17 +497,17 @@ class C7_Match(Scene):
         self.play(Create(c1), run_time=2.5)
         self.play(Create(tol), FadeIn(toll))
         band1 = Line(ax.c2p(0.817, 0.0), ax.c2p(1.183, 0.0), color=C_HL, stroke_width=10)
-        b1t = CT(r"单节：相对带宽约 $37\%$", 22, C_HL).move_to([4.6, -0.2, 0])
+        b1t = CT(r"单节：相对带宽约 $37\%$", 22, C_HL).move_to([4.5, -0.2, 0]).align_to(np.array([3.05, 0, 0]), LEFT)
         self.play(Create(band1), FadeIn(b1t))
         why = VGroup(CT(r"偏离 $f_0$ 时，线长不再是 $\lambda/4$，", 22),
                      CT(r"$Z_{01}^2/R_L$ 的变换不成立：\textbf{窄带}", 22)).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
-        fitw(why, 4.6).next_to(b1t, DOWN, aligned_edge=LEFT, buff=0.25)
+        fitw(why, 3.9).next_to(b1t, DOWN, aligned_edge=LEFT, buff=0.25)
         self.play(FadeIn(why))
         c2 = poly([ax.c2p(x, g2(x)) for x in xs], C_I, 3.5)
         band2 = Line(ax.c2p(0.643, 0.012), ax.c2p(1.357, 0.012), color=C_I, stroke_width=10)
         b2t = VGroup(CT(r"两节阶梯（$59.5\ \Omega$、$84.1\ \Omega$）：", 22, C_I),
                      CT(r"相对带宽约 $71\%$——多阶梯展宽频带", 22, C_I)).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
-        fitw(b2t, 4.6).next_to(why, DOWN, aligned_edge=LEFT, buff=0.3)
+        fitw(b2t, 3.9).next_to(why, DOWN, aligned_edge=LEFT, buff=0.3)
         self.play(Create(c2), Create(band2), FadeIn(b2t), run_time=2.5)
         self.wait(3)
         self.play(*[FadeOut(m) for m in self.mobjects if m is not title])
