@@ -1,0 +1,109 @@
+site_name: 电磁场与电磁波从零到精通
+site_description: 面向电子信息类本科生的电磁场与电磁波讲义——从矢量分析到传输线与无线信道，配 manim 动画可视化与知识点归纳
+site_author: light
+site_url: https://cockroach-f.github.io/em-fields-waves/
+repo_url: https://github.com/cockroach-f/em-fields-waves
+repo_name: cockroach-f/em-fields-waves
+edit_uri: edit/main/docs/
+use_directory_urls: false
+copyright: Copyright &copy; 2026 light · 教学用途 · 参考郭辉萍、刘学观《电磁场与电磁波》（第 6 版）教材（未转载教材原文与插图）
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - footnotes
+  - attr_list
+  - md_in_html
+  - def_list
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: material/function-variant
+      link: https://cockroach-f.github.io/complex-functions/
+      name: 姊妹站点：复变函数从零到精通
+    - icon: material/radar
+      link: https://cockroach-f.github.io/isar-tutorial/
+      name: 姊妹站点：ISAR 目标识别入门与文献带读
+
+nav:
+  - 绪论与知识地图: index.md
+  - 第一部分 数学工具:
+      - 第 1 章 矢量分析与场论: ch1.md
+  - 第二部分 静态场:
+      - 第 2 章 静电场和恒定电场: ch2.md
+      - 第 3 章 边值问题的解法: ch3.md
+      - 第 4 章 恒定电流的磁场: ch4.md
+  - 第三部分 时变场与电磁波:
+      - 第 5 章 时变电磁场与电磁波: ch5.md
+      - 第 6 章 平面电磁波: ch6.md
+  - 第四部分 导行波与无线信道:
+      - 第 7 章 传输线: ch7.md
+      - 第 10 章 无线信道、电磁干扰与电磁兼容: ch10.md
+  - 全课程总结: summary.md
+  - 附录:
+      - 公式速查: formulas.md
+      - 参考资料与致谢: references.md
+  - 姊妹站点 · 复变函数从零到精通: https://cockroach-f.github.io/complex-functions/
+  - 姊妹站点 · ISAR 文献带读: https://cockroach-f.github.io/isar-tutorial/
