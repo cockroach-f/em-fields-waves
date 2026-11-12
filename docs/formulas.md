@@ -97,3 +97,46 @@
 | 斜入射 | $\theta_r=\theta_i$，$k_1\sin\theta_i=k_2\sin\theta_t$ |
 | 菲涅耳公式 | $R_\perp=\dfrac{\eta_2\cos\theta_i-\eta_1\cos\theta_t}{\eta_2\cos\theta_i+\eta_1\cos\theta_t}$，$R_\parallel=\dfrac{\eta_1\cos\theta_i-\eta_2\cos\theta_t}{\eta_1\cos\theta_i+\eta_2\cos\theta_t}$ |
 | 全反射 / 全透射 | $\theta_c=\arcsin\sqrt{\varepsilon_2/\varepsilon_1}$；$\theta_B=\arctan\sqrt{\varepsilon_2/\varepsilon_1}$（只对平行极化） |
+
+## 第 7 章 传输线
+
+约定：$z$ 从负载量起，指向电源；$R_0,L_0,G_0,C_0$ 为单位长度分布参数。
+
+| 内容 | 公式 |
+|---|---|
+| 电报方程 | $\dfrac{\dd U}{\dd z}=(R_0+\je\omega L_0)I$，$\dfrac{\dd I}{\dd z}=(G_0+\je\omega C_0)U$ |
+| 通解 | $U(z)=A_1\mathrm e^{\gamma z}+A_2\mathrm e^{-\gamma z}$，$I(z)=\dfrac{1}{Z_0}(A_1\mathrm e^{\gamma z}-A_2\mathrm e^{-\gamma z})$ |
+| 特性阻抗 | $Z_0=\sqrt{\dfrac{R_0+\je\omega L_0}{G_0+\je\omega C_0}}$；无耗 $Z_0=\sqrt{L_0/C_0}$ |
+| 传播常数 | $\gamma=\sqrt{(R_0+\je\omega L_0)(G_0+\je\omega C_0)}=\alpha+\je\beta$；低耗 $\alpha=\dfrac{R_0}{2Z_0}+\dfrac{G_0Z_0}{2}$，$\beta=\omega\sqrt{L_0C_0}$ |
+| 相速、线上波长 | $v_p=\dfrac{\omega}{\beta}=\dfrac{c}{\sqrt{\varepsilon_r}}$，$\lambda_g=\dfrac{\lambda_0}{\sqrt{\varepsilon_r}}$ |
+| 反射系数 | $\Gamma_L=\dfrac{Z_L-Z_0}{Z_L+Z_0}=\lvert\Gamma_L\rvert\mathrm e^{\je\phi_L}$，$\Gamma(z)=\Gamma_L\mathrm e^{-\je2\beta z}$ |
+| 输入阻抗 | $Z_{\mathrm{in}}(z)=Z_0\dfrac{Z_L+\je Z_0\tan\beta z}{Z_0+\je Z_L\tan\beta z}=Z_0\dfrac{1+\Gamma(z)}{1-\Gamma(z)}$ |
+| 驻波比、行波系数 | $\rho=\dfrac{1+\lvert\Gamma_L\rvert}{1-\lvert\Gamma_L\rvert}$，$K=\dfrac1\rho$，$\lvert\Gamma_L\rvert=\dfrac{\rho-1}{\rho+1}$ |
+| 波腹、波节 | $z_{\max}=\dfrac{\lambda}{4\pi}\phi_L+n\dfrac\lambda2$，$R_{\max}=Z_0\rho$；$z_{\min}=z_{\max}+\dfrac\lambda4$，$R_{\min}=\dfrac{Z_0}{\rho}$ |
+| 由测量求负载 | $Z_L=Z_0\dfrac{1-\je\rho\tan\beta l_{\min1}}{\rho-\je\tan\beta l_{\min1}}$ |
+| 短路线 / 开路线 | $Z_{\mathrm{in}}=\je Z_0\tan\beta l$；$Z_{\mathrm{in}}=-\je Z_0\cot\beta l$ |
+| $\lambda/2$、$\lambda/4$ | $Z_{\mathrm{in}}(z+\lambda/2)=Z_{\mathrm{in}}(z)$；$Z_{\mathrm{in}}(z)\,Z_{\mathrm{in}}(z+\lambda/4)=Z_0^2$ |
+| Smith 圆图 | $\Gamma=\dfrac{\bar Z-1}{\bar Z+1}$；电阻圆圆心 $\big(\frac{r}{1+r},0\big)$、半径 $\frac{1}{1+r}$；电抗圆圆心 $\big(1,\frac1x\big)$、半径 $\frac{1}{\lvert x\rvert}$；向电源顺时针 |
+| 传输效率 | $\eta=\dfrac{1-\lvert\Gamma_L\rvert^2}{\mathrm e^{2\alpha l}-\lvert\Gamma_L\rvert^2\mathrm e^{-2\alpha l}}$，匹配时 $\mathrm e^{-2\alpha l}$ |
+| 损耗 | $\alpha_c=\dfrac{R_0}{2Z_0}$，$\alpha_d=\dfrac{G_0Z_0}{2}=\dfrac{\pi\sqrt{\varepsilon_r}}{\lambda}\tan\delta$ |
+| 功率容量 | $P_{\max}=\dfrac{U_M^2}{2\rho Z_0}$ |
+| 双导线 / 同轴线 | $Z_0=\dfrac{120}{\sqrt{\varepsilon_r}}\ln\dfrac{2D}{d}$；$Z_0=\dfrac{60}{\sqrt{\varepsilon_r}}\ln\dfrac ba$；同轴单模 $\lambda_{\min}>\pi(a+b)$ |
+| 微带线 | $\varepsilon_e=1+q(\varepsilon_r-1)$，$q=\dfrac12\Big[1+\Big(1+\dfrac{12h}{w}\Big)^{-1/2}\Big]$；$Z_0=\dfrac{Z_0^a}{\sqrt{\varepsilon_e}}$，$\lambda_g=\dfrac{\lambda_0}{\sqrt{\varepsilon_e}}$ |
+| 匹配 | $\lambda/4$ 变换器 $Z_{01}=\sqrt{Z_0R_L}$（复负载：波腹处 $Z_0\sqrt\rho$，波节处 $Z_0/\sqrt\rho$）；共轭匹配 $Z_{\mathrm{in}}=Z_g^*$，$P_{\max}=\dfrac{\lvert E_g\rvert^2}{8R_g}$ |
+
+## 第 10 章 无线信道、电磁干扰与电磁兼容
+
+| 内容 | 公式 |
+|---|---|
+| 弗里斯公式 | $P_r=P_{\mathrm{in}}G_tG_r\Big(\dfrac{\lambda}{4\pi r}\Big)^2$ |
+| 自由空间损耗 | $L_{bf}=32.45+20\lg f_{\mathrm{MHz}}+20\lg r_{\mathrm{km}}$ dB（各向同性天线；有增益时再减 $G_t$、$G_r$ 的 dB 值） |
+| 信道损耗 | $L_b=L_{bf}-A$，$A=20\lg\lvert E/E_0\rvert$ dB |
+| 多径容许带宽 | $\Delta f\approx\dfrac1\tau$（$\tau$ 为最大多径时延差） |
+| 视线距离 | $r_v=3.57(\sqrt{h_1}+\sqrt{h_2})$ km；计入大气折射 $r_v=4.12(\sqrt{h_1}+\sqrt{h_2})$ km（$h$ 以 m 计） |
+| 两径模型 | 程差 $\Delta r\approx\dfrac{2h_1h_2}{d}$；掠入射 $\Gamma\approx-1$ 时 $\lvert F\rvert=2\Big\lvert\sin\dfrac{2\pi h_1h_2}{\lambda d}\Big\rvert$ |
+| 电离层 | $\varepsilon_r=1-\dfrac{80.8N}{f^2}$；垂直入射可反射的最高频率 $f_c=\sqrt{80.8N_{\max}}$ |
+| 正割定律 | $f_{\max}=\sqrt{80.8N_{\max}}\sec\theta_0$；最佳工作频率 $f_{\mathrm{opt}}=0.85f_{\max}$ |
+| 静区 | $\theta_{0\min}=\arcsin\sqrt{1-\dfrac{80.8N_{\max}}{f^2}}$ |
+| 电磁兼容安全系数 | $m=P_s-P_I$（dB），$m>0$ 才兼容 |
+| 屏蔽效能 | $\mathrm{SE}=\mathrm{SE}_a+\mathrm{SE}_r$（+ 多次反射修正），吸收损耗 $\mathrm{SE}_a=8.686\,t/\delta$ dB，$\delta=\dfrac{1}{\sqrt{\pi f\mu\sigma}}$ |
+| 接地方式 | $f<1$ MHz 单点接地；$f>10$ MHz 多点接地；其间混合接地 |
