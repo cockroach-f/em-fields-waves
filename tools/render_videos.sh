@@ -5,6 +5,7 @@
 # 依赖：manim (Community, >=0.18)、ffmpeg、TeX 发行版（xelatex + ctex，公式用 MathTex/Tex 排版）。
 #   若存在 TINYTEX_BIN（默认 /workspace/tools/.TinyTeX/bin/x86_64-linux）会自动加入 PATH。
 set -euo pipefail
+export PATH="/workspace/tools/mamba/envs/manim/bin:$PATH"
 TINYTEX_BIN="${TINYTEX_BIN:-/workspace/tools/.TinyTeX/bin/x86_64-linux}"
 [[ -d "$TINYTEX_BIN" ]] && export PATH="$TINYTEX_BIN:$PATH"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

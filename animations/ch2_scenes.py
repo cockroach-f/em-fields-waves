@@ -206,8 +206,8 @@ class C2_Polarization(Scene):
         angs0 = rng.uniform(0, TAU, len(pos))
         for c, a in zip(pos, angs0):
             dips.add(dipole(c, a))
-        cap = CT(r"无外场：分子电偶极矩取向杂乱，宏观 $\vv P=0$", 26).to_edge(RIGHT, buff=0.4).shift(UP * 1.6)
-        fitw(cap, 5.4)
+        cap = CT(r"无外场：分子电偶极矩取向杂乱，宏观 $\vv P=0$", 26)
+        fitw(cap, 4.9).move_to(RIGHT * 4.45 + UP * 1.5)
         self.play(FadeIn(dips), FadeIn(cap))
         self.wait(0.8)
         lines_vac = VGroup()
@@ -215,7 +215,7 @@ class C2_Polarization(Scene):
         for x in xs:
             lines_vac.add(Arrow([x, 2.1, 0], [x, -2.7, 0], buff=0, color=C_E, stroke_width=2, max_tip_length_to_length_ratio=0.04))
         cap2 = CT(r"加外场 $\vv E_0$（自由电荷产生）：偶极子转向，沿 $\vv E$ 排列", 26).move_to(cap)
-        fitw(cap2, 5.4)
+        fitw(cap2, 4.9).move_to(RIGHT * 4.45 + UP * 1.5)
         self.play(FadeIn(lines_vac), ReplacementTransform(cap, cap2))
         self.play(*[Rotate(d, angle=(-PI / 2 - a + PI) % TAU - PI, about_point=c) for d, c, a in zip(dips, pos, angs0)], run_time=2.5)
         self.wait(0.5)
@@ -226,7 +226,7 @@ class C2_Polarization(Scene):
             CT(r"束缚面电荷 $\rho_{Sb}=\vv P\cdot\an$", 26, C_HL),
             CT(r"（上表面 $\an=\ay$：$-$；下表面 $\an=-\ay$：$+$）", 22, GREY_B),
         ).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(cap2).shift(DOWN * 0.3)
-        fitw(cap3, 5.4)
+        fitw(cap3, 4.9).move_to(RIGHT * 4.45 + UP * 1.3)
         self.play(FadeIn(sb_top), FadeIn(sb_bot), ReplacementTransform(cap2, cap3))
         self.wait(0.8)
         new_lines = VGroup()
@@ -241,8 +241,8 @@ class C2_Polarization(Scene):
             MT(r"\vv E=\frac{\vv E_0}{\varepsilon_r}", 34, C_E),
             CT(r"但 $\vv D=\varepsilon_0\vv E+\vv P$ 只认自由电荷：", 24),
             CT(r"$\nabla\cdot\vv D=\rho_V$，$\vv D=\varepsilon\vv E$，$D$ 线穿过介质不中断", 24, C_HL),
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.18).move_to(RIGHT * 4.0 + DOWN * 1.3)
-        fitw(cap4, 5.4)
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.18)
+        fitw(cap4, 4.9).move_to(RIGHT * 4.45 + DOWN * 1.45)
         self.play(ReplacementTransform(lines_vac, new_lines), FadeIn(cap4))
         self.wait(3)
 
@@ -261,8 +261,14 @@ class C2_Refraction(Scene):
         dn = Rectangle(width=L, height=2.9, stroke_width=0, fill_color=TEAL_E, fill_opacity=0.35).move_to([cx, y0 - 1.45, 0])
         iface = Line([cx - L / 2, y0, 0], [cx + L / 2, y0, 0], color=WHITE, stroke_width=3)
         l1 = CT(r"媒质 1：$\varepsilon_1$", 26).move_to([cx - L / 2 + 1.1, 2.15, 0])
+        l1.add_to_back(BackgroundRectangle(l1, fill_opacity=0.8, buff=0.06))
         ratio = ValueTracker(1.0)
-        l2 = always_redraw(lambda: CT(rf"媒质 2：$\varepsilon_2={ratio.get_value():.2f}\,\varepsilon_1$", 26).move_to([cx - L / 2 + 1.6, -3.05, 0]))
+        def mk_l2():
+            m = CT(rf"媒质 2：$\varepsilon_2={ratio.get_value():.2f}\,\varepsilon_1$", 26).move_to([cx - L / 2 + 1.6, -3.05, 0])
+            m.add_to_back(BackgroundRectangle(m, fill_opacity=0.8, buff=0.06))
+            return m
+
+        l2 = always_redraw(mk_l2)
         self.play(FadeIn(up), FadeIn(dn), Create(iface), FadeIn(l1), FadeIn(l2))
         th1 = 40 * DEGREES
 
@@ -298,6 +304,7 @@ class C2_Refraction(Scene):
 
         lines = always_redraw(dlines)
         self.play(FadeIn(lines))
+        self.bring_to_front(l1, l2)
         P = np.array([cx + 0.75, y0, 0])
         nrm = DashedLine(P + UP * 2.4, P + DOWN * 2.4, color=GREY_B)
 

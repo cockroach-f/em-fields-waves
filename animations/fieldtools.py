@@ -100,3 +100,27 @@ def charges_potential(charges, soft=1e-4):
             V = V + q / np.sqrt((X - a) ** 2 + (Y - b) ** 2 + soft)
         return V
     return P
+
+
+def colormap(v, stops=None):
+    """v in [0,1] (ndarray) -> uint8 RGB，类似 inferno 的配色."""
+    if stops is None:
+        stops = [(0.0, (0, 0, 4)), (0.25, (87, 16, 110)), (0.5, (188, 55, 84)), (0.75, (249, 142, 9)), (1.0, (252, 255, 164))]
+    v = np.clip(v, 0, 1)
+    out = np.zeros(v.shape + (3,))
+    for (a, ca), (b, cb) in zip(stops[:-1], stops[1:]):
+        m = (v >= a) & (v <= b)
+        t = ((v - a) / (b - a))[m]
+        for k in range(3):
+            out[..., k][m] = ca[k] + t * (cb[k] - ca[k])
+    return out.astype(np.uint8)
+
+
+def heat_image(U, vmin, vmax, width, stops=None):
+    """U[row=y, col=x]，y 向上为正；返回宽度为 width 的 ImageMobject."""
+    from manim import ImageMobject
+    arr = colormap((np.asarray(U) - vmin) / (vmax - vmin), stops)[::-1]
+    im = ImageMobject(arr)
+    im.set_resampling_algorithm(0)  # nearest
+    im.scale_to_fit_width(width)
+    return im
