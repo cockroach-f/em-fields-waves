@@ -333,6 +333,8 @@ $$E_1=E_0^i\left(\mathrm e^{-\je k_1z}+R\,\mathrm e^{\je k_1z}\right),\qquad|E_1
 
     把 $E\leftrightarrow U$、$H\leftrightarrow I$、$\eta\leftrightarrow Z_0$ 对应起来，本节的每一个公式都会在第 7 章重现：$R=\dfrac{Z_L-Z_0}{Z_L+Z_0}$、驻波比 $S=\dfrac{1+|\Gamma|}{1-|\Gamma|}$、短路线上的纯驻波、$\lambda/4$ 阻抗变换器（在两种介质间插入厚 $\lambda/4$、$\eta=\sqrt{\eta_1\eta_3}$ 的介质层消除反射，即光学增透膜）。原因是两者满足同样的方程 $\dfrac{\dd^2E}{\dd z^2}+k^2E=0$ 和同样的边界条件（$E$、$H$ 切向连续 ↔ $U$、$I$ 连续）。
 
+<a id="multilayer"></a>
+
 !!! info "拓展：多层介质与传输线类比"
 
     一层厚度为 $d$、波阻抗为 $\eta_2$ 的介质夹在媒质 1 与媒质 3 之间，垂直入射时，在前界面处向里看的输入波阻抗与第 7 章传输线的输入阻抗形式完全相同：

@@ -19,4 +19,4 @@
 
 - 讲解、推导、例题解答和动画（`animations/`，用 [Manim Community](https://www.manim.community/) 制作）均为本站编写，教学用途。
 - 如发现错误，欢迎在 [GitHub Issues](https://github.com/cockroach-f/em-fields-waves/issues) 指出。
-- 姊妹站点：[复变函数从零到精通](https://cockroach-f.github.io/complex-functions/)、[ISAR 目标识别入门与文献带读](https://cockroach-f.github.io/isar-tutorial/)。
+- 姊妹站点：[复变函数从零到精通](https://cockroach-f.github.io/complex-functions/)、[量子力学从零到精通](https://cockroach-f.github.io/quantum-mechanics/)、[ISAR 目标识别入门与文献带读](https://cockroach-f.github.io/isar-tutorial/)。

@@ -97,6 +97,7 @@
 | 斜入射 | $\theta_r=\theta_i$，$k_1\sin\theta_i=k_2\sin\theta_t$ |
 | 菲涅耳公式 | $R_\perp=\dfrac{\eta_2\cos\theta_i-\eta_1\cos\theta_t}{\eta_2\cos\theta_i+\eta_1\cos\theta_t}$，$R_\parallel=\dfrac{\eta_1\cos\theta_i-\eta_2\cos\theta_t}{\eta_1\cos\theta_i+\eta_2\cos\theta_t}$ |
 | 全反射 / 全透射 | $\theta_c=\arcsin\sqrt{\varepsilon_2/\varepsilon_1}$；$\theta_B=\arctan\sqrt{\varepsilon_2/\varepsilon_1}$（只对平行极化） |
+| 多层介质与传输线类比 | 夹层输入波阻抗 $Z(-d)=\eta_2\dfrac{\eta_3\cos\beta_2 d+\je\eta_2\sin\beta_2 d}{\eta_2\cos\beta_2 d+\je\eta_3\sin\beta_2 d}$，$R=\dfrac{Z(-d)-\eta_1}{Z(-d)+\eta_1}$；半波窗（$\eta_1=\eta_3$、$d=n\lambda_2/2$）全透射；$\lambda/4$ 匹配层（$d=(2n+1)\lambda_2/4$、$\eta_2=\sqrt{\eta_1\eta_3}$）无反射 |
 
 ## 第 7 章 传输线
 
@@ -128,15 +129,18 @@
 
 | 内容 | 公式 |
 |---|---|
-| 弗里斯公式 | $P_r=P_{\mathrm{in}}G_tG_r\Big(\dfrac{\lambda}{4\pi r}\Big)^2$ |
+| 弗里斯公式 | $P_r=P_{\mathrm{in}}G_tG_r\Big(\dfrac{\lambda}{4\pi r}\Big)^2$，有效接收面积 $A_e=\dfrac{\lambda^2}{4\pi}G_r$ |
 | 自由空间损耗 | $L_{bf}=32.45+20\lg f_{\mathrm{MHz}}+20\lg r_{\mathrm{km}}$ dB（各向同性天线；有增益时再减 $G_t$、$G_r$ 的 dB 值） |
 | 信道损耗 | $L_b=L_{bf}-A$，$A=20\lg\lvert E/E_0\rvert$ dB |
+| 多普勒频移 | $f_D=\dfrac v\lambda\cos\theta$（$\theta$ 为运动方向与来波方向的夹角），最大多普勒频移 $f_m=v/\lambda$；深衰落间隔 $\approx\lambda/(2v)=1/(2f_m)$ |
 | 多径容许带宽 | $\Delta f\approx\dfrac1\tau$（$\tau$ 为最大多径时延差） |
 | 视线距离 | $r_v=3.57(\sqrt{h_1}+\sqrt{h_2})$ km；计入大气折射 $r_v=4.12(\sqrt{h_1}+\sqrt{h_2})$ km（$h$ 以 m 计） |
-| 两径模型 | 程差 $\Delta r\approx\dfrac{2h_1h_2}{d}$；掠入射 $\Gamma\approx-1$ 时 $\lvert F\rvert=2\Big\lvert\sin\dfrac{2\pi h_1h_2}{\lambda d}\Big\rvert$ |
+| 两径模型 | 程差 $\Delta r\approx 2h_1h_2/d$；掠入射 $R\approx-1$ 时路径因子 $\lvert F\rvert=2\Big\lvert\sin\dfrac{2\pi h_1h_2}{\lambda d}\Big\rvert$ |
+| 两径远区（$1/d^4$） | 转折距离 $d_b=4h_1h_2/\lambda$；$d>d_b$ 时 $\lvert F\rvert\approx 4\pi h_1h_2/(\lambda d)$，接收功率 $P_r\approx P_{\mathrm{in}}G_tG_r h_1^2h_2^2/d^4$ |
+| 第一菲涅耳区 | 半径 $F_1=\sqrt{\dfrac{\lambda d_1d_2}{d_1+d_2}}$，$F_n=\sqrt n\,F_1$；余隙 $\ge 0.6F_1$ 时可忽略绕射附加损耗 |
 | 电离层 | $\varepsilon_r=1-\dfrac{80.8N}{f^2}$；垂直入射可反射的最高频率 $f_c=\sqrt{80.8N_{\max}}$ |
 | 正割定律 | $f_{\max}=\sqrt{80.8N_{\max}}\sec\theta_0$；最佳工作频率 $f_{\mathrm{opt}}=0.85f_{\max}$ |
 | 静区 | $\theta_{0\min}=\arcsin\sqrt{1-\dfrac{80.8N_{\max}}{f^2}}$ |
 | 电磁兼容安全系数 | $m=P_s-P_I$（dB），$m>0$ 才兼容 |
-| 屏蔽效能 | $\mathrm{SE}=\mathrm{SE}_a+\mathrm{SE}_r$（+ 多次反射修正），吸收损耗 $\mathrm{SE}_a=8.686\,t/\delta$ dB，$\delta=\dfrac{1}{\sqrt{\pi f\mu\sigma}}$ |
+| 屏蔽效能 | $\mathrm{SE}=20\lg(E_{\mathrm{inc}}/E_{\mathrm t})=\mathrm{SE}_a+\mathrm{SE}_r$；吸收 $\mathrm{SE}_a=8.686\,t/\delta$ dB，平面波反射 $\mathrm{SE}_r\approx 20\lg\dfrac{\eta_0}{4\lvert\eta_c\rvert}$，$\delta=1/\sqrt{\pi f\mu\sigma}$ |
 | 接地方式 | $f<1$ MHz 单点接地；$f>10$ MHz 多点接地；其间混合接地 |
