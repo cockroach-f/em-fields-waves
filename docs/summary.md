@@ -16,9 +16,9 @@ flowchart TD
     C4 --> C5
     C5 --> C6["第6章 平面电磁波<br/>k, η, 极化, 趋肤效应<br/>反射 · 折射 · 驻波"]
     C5 --> C7["第7章 传输线<br/>电报方程 · Z₀ · Γ · Z_in<br/>驻波比 · Smith 圆图 · 匹配"]
-    C6 -.垂直入射 ≅ 端接负载.-> C7
+    C6 -.->|"垂直入射 ≅ 端接负载"| C7
     C6 --> C10["第10章 无线信道与电磁兼容<br/>弗里斯 · 两径 1/d⁴ · 菲涅耳区<br/>多普勒 · 电离层 / 地波 · 屏蔽"]
-    C7 -.匹配 · 滤波.-> C10
+    C7 -.->|"匹配 · 滤波"| C10
 ```
 
 ## 2. 主线：从“源”到“波”
@@ -57,12 +57,14 @@ flowchart TD
 | 场的观点 | 路的观点 | 联系 |
 |---|---|---|
 | $\vv E$、$\vv H$ | 电压 $U=\int\vv E\cdot\dd\vv l$、电流 $I=\oint\vv H\cdot\dd\vv l$ | 积分 |
-| $\nabla\times\vv E=-\je\omega\mu\vv H$ | $\dfrac{\dd U}{\dd z}=(R+\je\omega L)I$ | 法拉第定律 → 串联阻抗 |
+| $\nabla\times\vv E=-\je\omega\mu\vv H$ | $\dfrac{\dd U}{\dd z}=(R+\je\omega L)I$ | 法拉第定律 → 串联阻抗（符号约定见表下说明） |
 | $\nabla\times\vv H=(\sigma+\je\omega\varepsilon)\vv E$ | $\dfrac{\dd I}{\dd z}=(G+\je\omega C)U$ | 全电流定律 → 并联导纳 |
 | 波阻抗 $\eta=\sqrt{\mu/\varepsilon}$ | 特性阻抗 $Z_0=\sqrt{L/C}$ | 都是“行波的电量 / 磁量” |
 | 传播常数 $\gamma=\je\omega\sqrt{\mu\varepsilon_c}$ | $\gamma=\sqrt{(R+\je\omega L)(G+\je\omega C)}$ | 形式相同 |
 | 坡印廷矢量 $\frac12\Re[\vv E\times\vv H^*]$ | 功率 $\frac12\Re[UI^*]$ | 对截面积分相等 |
 | 反射系数 $R=\dfrac{\eta_2-\eta_1}{\eta_2+\eta_1}$ | $\Gamma_L=\dfrac{Z_L-Z_0}{Z_L+Z_0}$ | 平面波垂直入射 ≅ 传输线端接负载 |
+
+**符号约定。** 表中两列的 $z$ 方向不同：平面波一列沿用第 6 章，$z$ 沿入射波传播方向，对 $\vv E=\ax E_x$、$\vv H=\ay H_y$ 有 $\dfrac{\dd E_x}{\dd z}=-\je\omega\mu H_y$、$\dfrac{\dd H_y}{\dd z}=-(\sigma+\je\omega\varepsilon)E_x$；传输线一列沿用第 7 章，$z$ 从负载量起、指向电源（与入射波方向相反），所以电报方程右边是正号。若把传输线的 $z$ 也改为从电源指向负载，两式变成 $\dfrac{\dd U}{\dd z}=-(R+\je\omega L)I$、$\dfrac{\dd I}{\dd z}=-(G+\je\omega C)U$，与平面波逐项对应。
 
 电路理论是场论在“尺寸 ≪ 波长”时的近似：这时沿线的相位变化可以忽略，电压、电流只与时间有关；尺寸可以与波长比拟时就必须用分布参数（传输线）甚至直接用场。
 

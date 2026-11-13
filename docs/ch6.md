@@ -259,7 +259,7 @@ $$E=2E_m\cos(\Delta\omega\,t-\Delta\beta\,z)\cos(\omega_0t-\beta_0z).$$
 
     $\dfrac{\dd v_p}{\dd\omega}<0$ 时 $v_g<v_p$，称为**正常色散**；$\dfrac{\dd v_p}{\dd\omega}>0$ 时 $v_g>v_p$，称为**反常色散**；无色散时 $v_g=v_p$。
 
-信号的能量和信息以群速传播（在色散不太强、群速有意义的情况下）。相速可以大于光速（例如波导中、等离子体中），并不违反相对论，因为相速不传递信息；群速总小于光速。电离层是一种等离子体，$v_pv_g=c^2$，第 10 章会遇到。
+信号的能量和信息以群速传播（在色散不太强、群速有意义的情况下）。相速可以大于光速（例如波导中、等离子体中），并不违反相对论，因为相速不传递信息。在波导、电离层这类常见情形中 $v_pv_g=c^2$，相速大于光速而群速小于光速；但在吸收线附近的反常色散区，群速可以大于 $c$ 甚至为负，这时波包形状严重畸变，群速不再代表能量和信息的速度。真正受相对论限制的是信号的波前速度，它永远不超过 $c$。电离层是一种等离子体，第 10 章会再遇到这个关系。
 
 ---
 
@@ -464,8 +464,8 @@ flowchart LR
     PW --> POL["极化：线 / 圆 / 椭圆"]
     PW --> N["垂直入射：R, T, 驻波比"]
     PW --> O["斜入射：斯涅尔、菲涅耳、θ_c、θ_B"]
-    N -.同构.-> TL["第 7 章 传输线：Γ, Z_in, VSWR"]
-    O -.TE/TM.-> WG["波导（导行波）"]
+    N -.->|"同构"| TL["第 7 章 传输线：Γ, Z_in, VSWR"]
+    O -.->|"TE / TM"| WG["波导（导行波）"]
 ```
 
 **易错点汇总。**
@@ -608,7 +608,7 @@ flowchart LR
 
         $\sin\theta_i=|k_{ix}|/k_i=1/2$，$\theta_i=30^\circ$。由斯涅尔定律 $\sin\theta_t=\sin\theta_i/2=1/4$，$\theta_t=\arcsin(1/4)=14.48^\circ$。
 
-        (2) $\vv a_k=\vv k_i/k_i=(-1/2)\ax+(\sqrt{3}/2)\az$，$\vv E_i=\eta_0\vv a_k\times\vv H_i=-\ay 240\pi\,\mathrm e^{\je 2(x-\sqrt{3}z)}\ \mathrm{V/m}$。$\vv E$ 垂直于入射面（$xz$ 面），是**垂直极化**。
+        (2) $\vv a_k=\vv k_i/k_i=(-1/2)\ax+(\sqrt{3}/2)\az$，由 $\vv H=\dfrac1\eta\vv a_k\times\vv E$ 反解得 $\vv E=\eta\vv H\times\vv a_k$，于是 $\vv E_i=\eta_0\vv H_i\times\vv a_k=-\ay 240\pi\,\mathrm e^{\je 2(x-\sqrt{3}z)}\ \mathrm{V/m}$。$\vv E$ 垂直于入射面（$xz$ 面），是**垂直极化**。
 
         (3) $\eta_2=\eta_0/2$，$\cos\theta_t=\sqrt{15}/4$，
 

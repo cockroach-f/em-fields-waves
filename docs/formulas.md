@@ -62,7 +62,7 @@
 | 磁偶极子 | $\vv p_m=I\vv S$；$\vv B=\dfrac{\mu_0p_m}{4\pi r^3}(2\cos\theta\ar+\sin\theta\atheta)$ |
 | 磁介质 | $\vv B=\mu_0(\vv H+\vv M)=\mu\vv H$；$\vv J_b=\nabla\times\vv M$，$\vv J_{Sb}=\vv M\times\an$ |
 | 边界条件 | $\an\cdot(\vv B_1-\vv B_2)=0$，$\an\times(\vv H_1-\vv H_2)=\vv J_S$ |
-| 电感 | $L=\Psi/I$；直导线内自感 $\dfrac{\mu_0}{8\pi}$；同轴线外自感 $\dfrac{\mu}{2\pi}\ln\dfrac ba$；双线 $\dfrac{\mu}{\pi}\ln\dfrac{D-a}{a}$ |
+| 电感 | $L=\Psi/I$；直导线内自感 $\dfrac{\mu_0}{8\pi}$；同轴线外自感 $\dfrac{\mu}{2\pi}\ln\dfrac ba$；双线外自感 $\dfrac{\mu}{\pi}\ln\dfrac Da$（$D\gg a$；导体表面电流时精确为 $\dfrac{\mu}{\pi}\operatorname{arccosh}\dfrac{D}{2a}$） |
 | 磁场能量 | $W_m=\dfrac12LI^2=\dfrac12\int\vv B\cdot\vv H\dd V$，$w_m=\dfrac{B^2}{2\mu}$ |
 | 三种静态场的对偶 | $\vv E\leftrightarrow\vv H$，$\vv D\leftrightarrow\vv B$，$\varepsilon\leftrightarrow\mu$；$C\leftrightarrow L$；同一结构 $L_0C_0=\mu\varepsilon$ |
 
@@ -119,7 +119,7 @@
 | $\lambda/2$、$\lambda/4$ | $Z_{\mathrm{in}}(z+\lambda/2)=Z_{\mathrm{in}}(z)$；$Z_{\mathrm{in}}(z)\,Z_{\mathrm{in}}(z+\lambda/4)=Z_0^2$ |
 | Smith 圆图 | $\Gamma=\dfrac{\bar Z-1}{\bar Z+1}$；电阻圆圆心 $\big(\frac{r}{1+r},0\big)$、半径 $\frac{1}{1+r}$；电抗圆圆心 $\big(1,\frac1x\big)$、半径 $\frac{1}{\lvert x\rvert}$；向电源顺时针 |
 | 传输效率 | $\eta=\dfrac{1-\lvert\Gamma_L\rvert^2}{\mathrm e^{2\alpha l}-\lvert\Gamma_L\rvert^2\mathrm e^{-2\alpha l}}$，匹配时 $\mathrm e^{-2\alpha l}$ |
-| 损耗 | $\alpha_c=\dfrac{R_0}{2Z_0}$，$\alpha_d=\dfrac{G_0Z_0}{2}=\dfrac{\pi\sqrt{\varepsilon_r}}{\lambda}\tan\delta$ |
+| 损耗 | $\alpha_c=\dfrac{R_0}{2Z_0}$，$\alpha_d=\dfrac{G_0Z_0}{2}=\dfrac{\pi\sqrt{\varepsilon_r}}{\lambda_0}\tan\delta=\dfrac{\pi}{\lambda_g}\tan\delta$（$\lambda_0$ 为自由空间波长） |
 | 功率容量 | $P_{\max}=\dfrac{U_M^2}{2\rho Z_0}$ |
 | 双导线 / 同轴线 | $Z_0=\dfrac{120}{\sqrt{\varepsilon_r}}\ln\dfrac{2D}{d}$；$Z_0=\dfrac{60}{\sqrt{\varepsilon_r}}\ln\dfrac ba$；同轴单模 $\lambda_{\min}>\pi(a+b)$ |
 | 微带线 | $\varepsilon_e=1+q(\varepsilon_r-1)$，$q=\dfrac12\Big[1+\Big(1+\dfrac{12h}{w}\Big)^{-1/2}\Big]$；$Z_0=\dfrac{Z_0^a}{\sqrt{\varepsilon_e}}$，$\lambda_g=\dfrac{\lambda_0}{\sqrt{\varepsilon_e}}$ |

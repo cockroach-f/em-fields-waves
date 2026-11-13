@@ -333,13 +333,17 @@ $$\Psi_i=\int_0^a\frac{\rho^2}{a^2}\cdot\frac{\mu_0I\rho}{2\pi a^2}\dd\rho=\frac
 
     求半径为 $a$、轴线间距为 $D\gg a$ 的平行双导线单位长度的自感。
 
-    **解。** 外自感：两导线之间的磁通由两根导线的场叠加，
+    **解。** 外自感：$D\gg a$ 时每根导线外的磁场近似为 $\dfrac{\mu_0I}{2\pi\rho}$，回路交链的外磁通取两导线轴线之间、导体以外的部分，由两根导线的场叠加：
 
-    $$\Psi_o=\int_a^{D-a}\left[\frac{\mu_0I}{2\pi x}+\frac{\mu_0I}{2\pi(D-x)}\right]\dd x=\frac{\mu_0I}{\pi}\ln\frac{D-a}{a}.$$
+    $$\Psi_o\approx\int_a^{D}\frac{\mu_0I}{2\pi x}\dd x+\int_0^{D-a}\frac{\mu_0I}{2\pi(D-x)}\dd x=\frac{\mu_0I}{\pi}\ln\frac{D}{a},\qquad L_o=\frac{\mu_0}{\pi}\ln\frac Da .$$
 
     加上两根导线的内自感 $2\times\dfrac{\mu_0}{8\pi}$：
 
-    $$L_0=\frac{\mu_0}{\pi}\left(\frac14+\ln\frac{D-a}{a}\right)\approx\frac{\mu_0}{\pi}\ln\frac Da .$$
+    $$L_0=\frac{\mu_0}{\pi}\left(\frac14+\ln\frac{D}{a}\right).$$
+
+    每根导线的场要一直积到另一根导线的轴线：导线 1 的磁场穿过导线 2 截面的那部分磁通，只与导线 2 的部分电流交链，电流均匀分布时按电流加权平均，效果恰好等于把磁通积到导线 2 的轴线为止。所以积分限是 $D$（或 $0$），而不是导体表面。用能量 $W_m=\frac12L_0I^2$ 严格计算（电流在截面上均匀分布）给出的正是上式。若只积分两导体表面之间的区域，会得到 $\dfrac{\mu_0}{\pi}\ln\dfrac{D-a}{a}$，它偏小，只在 $D\gg a$ 时与 $\ln\dfrac Da$ 近似相等。
+
+    高频时电流集中在导体表面，内自感趋于零，而且两导线的电流互相吸引而偏向内侧（邻近效应），外自感严格为 $\dfrac{\mu}{\pi}\operatorname{arccosh}\dfrac{D}{2a}$，与第 3 章电轴法求出的 $C_0=\dfrac{\pi\varepsilon}{\operatorname{arccosh}(D/2a)}$ 正好满足 $L_0C_0=\mu\varepsilon$。$D\gg a$ 时 $\operatorname{arccosh}\dfrac{D}{2a}\approx\ln\dfrac Da$，各种写法一致。
 
 !!! example "例题 4.8（双线传输线与矩形线圈的互感）"
 
@@ -412,7 +416,7 @@ $$\Psi_i=\int_0^a\frac{\rho^2}{a^2}\cdot\frac{\mu_0I\rho}{2\pi a^2}\dd\rho=\frac
 
 ```mermaid
 flowchart LR
-    J["电流 J"] -->|毕奥–萨伐尔| B["B"]
+    J["电流 J"] -->|"毕奥–萨伐尔"| B["B"]
     J -->|"A = μ/4π ∫J/R dV"| A["磁矢位 A"]
     A -->|"B = ∇×A"| B
     J -->|"∮H·dl = I（对称）"| H["H"]
