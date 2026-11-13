@@ -456,7 +456,7 @@ $$\theta_B=\arcsin\sqrt{\frac{\varepsilon_2}{\varepsilon_1+\varepsilon_2}}=\arct
 
 ```mermaid
 flowchart LR
-    H["亥姆霍兹方程 ∇²E + k²E = 0"] --> PW["均匀平面波 E₀e^(−jk·r)"]
+    H["亥姆霍兹方程 ∇²E + k²E = 0"] --> PW["均匀平面波 E₀ exp(−jk·r)"]
     PW --> L["无耗：k, v_p, η 实数"]
     PW --> C["有耗：ε → ε_c, γ = α + jβ"]
     C --> SK["良导体：趋肤深度 δ、表面电阻 R_S"]
