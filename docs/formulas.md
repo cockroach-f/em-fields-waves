@@ -33,7 +33,7 @@
 | 介质 | $\vv D=\varepsilon_0\vv E+\vv P=\varepsilon\vv E$；$\rho_b=-\nabla\cdot\vv P$，$\rho_{Sb}=\vv P\cdot\an$ |
 | 边界条件 | $\an\cdot(\vv D_1-\vv D_2)=\rho_S$，$\an\times(\vv E_1-\vv E_2)=\vv 0$；$\dfrac{\tan\theta_1}{\tan\theta_2}=\dfrac{\varepsilon_1}{\varepsilon_2}$ |
 | 电容 | 平板 $\dfrac{\varepsilon S}{d}$；同轴 $\dfrac{2\pi\varepsilon l}{\ln(b/a)}$；同心球 $\dfrac{4\pi\varepsilon ab}{b-a}$；孤立球 $4\pi\varepsilon a$ |
-| 静电能量 | $W_e=\dfrac12\int\rho_V\phi\dd V=\dfrac12\int\vv D\cdot\vv E\dd V=\dfrac12CU^2$；$\vv F=-\nabla W_e|_{q}$ |
+| 静电能量 | $W_e=\dfrac12\int\rho_V\phi\dd V=\dfrac12\int\vv D\cdot\vv E\dd V=\dfrac12CU^2$；$\vv F=-\nabla W_e\big\vert_{q}$ |
 | 恒定电场 | $\vv J=\sigma\vv E$，$\nabla\cdot\vv J=0$；$J_{1n}=J_{2n}$；$p=\vv J\cdot\vv E$ |
 | 静电比拟 | $\dfrac{C}{G}=\dfrac{\varepsilon}{\sigma}$；半球接地体 $R=\dfrac{1}{2\pi\sigma a}$ |
 
@@ -85,14 +85,14 @@
 | 内容 | 公式 |
 |---|---|
 | 无耗媒质 | $\vv E=\ax E_0\mathrm e^{-\je kz}$，$\vv H=\ay\dfrac{E_0}{\eta}\mathrm e^{-\je kz}$；$v_p=\dfrac{1}{\sqrt{\mu\varepsilon}}$，$\lambda=\dfrac{2\pi}{k}$，$\eta=\sqrt{\dfrac\mu\varepsilon}$，$\eta_0=120\pi\ \Omega$ |
-| 任意方向 | $\vv E=\vv E_0\mathrm e^{-\je\vv k\cdot\vv r}$，$\vv H=\dfrac1\eta\vv a_k\times\vv E$；$\vv S_{\text{av}}=\dfrac{|E_0|^2}{2\eta}\vv a_k$ |
+| 任意方向 | $\vv E=\vv E_0\mathrm e^{-\je\vv k\cdot\vv r}$，$\vv H=\dfrac1\eta\vv a_k\times\vv E$；$\vv S_{\text{av}}=\dfrac{\lvert E_0\rvert^2}{2\eta}\vv a_k$ |
 | 复介电常数 | $\varepsilon_c=\varepsilon-\je\dfrac{\sigma}{\omega}$；$\tan\delta=\dfrac{\sigma}{\omega\varepsilon}$ |
-| 导电媒质 | $\gamma=\je\omega\sqrt{\mu\varepsilon_c}=\alpha+\je\beta$；$\eta_c=\sqrt{\mu/\varepsilon_c}=|\eta_c|\mathrm e^{\je\psi}$ |
+| 导电媒质 | $\gamma=\je\omega\sqrt{\mu\varepsilon_c}=\alpha+\je\beta$；$\eta_c=\sqrt{\mu/\varepsilon_c}=\lvert\eta_c\rvert\mathrm e^{\je\psi}$ |
 | 低损耗 | $\alpha\approx\dfrac\sigma2\sqrt{\dfrac\mu\varepsilon}$，$\beta\approx\omega\sqrt{\mu\varepsilon}$ |
 | 良导体 | $\alpha=\beta=\sqrt{\pi f\mu\sigma}$，$\delta=\dfrac1\alpha$，$\eta_c=(1+\je)\sqrt{\dfrac{\pi f\mu}{\sigma}}$，$R_S=\dfrac{1}{\sigma\delta}$ |
 | 极化 | $\Delta\varphi=\varphi_y-\varphi_x$：$0,\pm\pi$ 线极化；等幅且 $\pm\pi/2$ 圆极化；$+z$ 传播时 $-\pi<\Delta\varphi<0$ 右旋 |
 | 群速 | $v_g=\dfrac{\dd\omega}{\dd\beta}=\dfrac{v_p}{1-\dfrac{\omega}{v_p}\dfrac{\dd v_p}{\dd\omega}}$ |
-| 垂直入射 | $R=\dfrac{\eta_2-\eta_1}{\eta_2+\eta_1}$，$T=\dfrac{2\eta_2}{\eta_2+\eta_1}=1+R$；$S=\dfrac{1+|R|}{1-|R|}$ |
+| 垂直入射 | $R=\dfrac{\eta_2-\eta_1}{\eta_2+\eta_1}$，$T=\dfrac{2\eta_2}{\eta_2+\eta_1}=1+R$；$S=\dfrac{1+\lvert R\rvert}{1-\lvert R\rvert}$ |
 | 理想导体前的驻波 | $\vv E_1=-\ax\je2E_0\sin\beta z$，$\vv H_1=\ay\dfrac{2E_0}{\eta_1}\cos\beta z$ |
 | 斜入射 | $\theta_r=\theta_i$，$k_1\sin\theta_i=k_2\sin\theta_t$ |
 | 菲涅耳公式 | $R_\perp=\dfrac{\eta_2\cos\theta_i-\eta_1\cos\theta_t}{\eta_2\cos\theta_i+\eta_1\cos\theta_t}$，$R_\parallel=\dfrac{\eta_1\cos\theta_i-\eta_2\cos\theta_t}{\eta_1\cos\theta_i+\eta_2\cos\theta_t}$ |
